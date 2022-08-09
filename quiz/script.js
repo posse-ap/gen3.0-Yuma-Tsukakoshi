@@ -1,5 +1,4 @@
 'use strict';
-//${ 変数 }とすることで、文字列内に変数を展開できる
 
 {
   const ALL_QUESTION = [
@@ -44,32 +43,37 @@
     },
   ];
 
+  const QuizContainer = document.getElementById('js-QuizContainer');
+
+  const createQuizHtml = (quizItem,questionNumber) => {
+
 //<li>タグの解答HTML
-  const AnsersHtml = 
-  `<li class="p-quiz-box-answer-item">
-    <button class="p-quiz-box-answer-button js-answer" answer-index="${ALL_QUESTION.Answer.index}">${ALL_QUESTION.Answer}<i class="u-icon-arrow"></i>
+  const AnswersHtml = quizItem.Answer.map((Answer,AnswerIndex) => `<li class="p-quiz-box-answer-item">
+      <button class="p-quiz-box-answer-button js-answer" answer-index="${AnswerIndex}">
+        ${Answer}<i class="u-icon-arrow"></i>
     </button>
   </li>`
+  ).join(''); //mapの中に無名関数を加えHTML内容を返値としている
 
 //<blockquote>タグのHTML
-  const QuoteHtml = ALL_QUESTION.note ? `<blockquote class="p-quiz-box-note">
-    <i class="u-icon-note"></i>${ALL_QUESTION.note}
+  const QuoteHtml = quizItem.note ? `<blockquote class="p-quiz-box-note">
+    <i class="u-icon-note"></i>${quizItem.note}
   </blockquote>` : "";
 
-  document.write(`<section class="p-quiz-box js-quiz" quiz-number="${ALL_QUESTION.QuizNumber}"-1>
+  return `<section class="p-quiz-box js-quiz" quiz-number="${questionNumber}">
       <div class="p-quiz-box-question">
         <h2 class="p-quiz-box-question-title">
-          <span class="p-quiz-box-label">Q${ALL_QUESTION.QuizNumber}</span>
-          <span class="p-quiz-box-question-title-text">${ALL_QUESTION.Question}</span>
+          <span class="p-quiz-box-label">Q${questionNumber + 1 }</span>
+          <span class="p-quiz-box-question-title-text">${quizItem.Question}</span>
         </h2>
         <figure class="p-quiz-box-question-image">
-          <img src="./img/img-${ALL_QUESTION.QuizNumber}.png" alt="">
+          <img src="./img/img-${quizItem.QuizNumber}.png" alt="">
         </figure>
       </div>
       <div class="p-quiz-box-answer">
         <span class="p-quiz-box-label p-quiz-box-label-accent">A</span>
         <ul class="p-quiz-box-answer-list">
-          ${AnsersHtml}
+          ${AnswersHtml}
         </ul>
         <div class="p-quiz-box-answer-correct js-answerBox">
           <p class="p-quiz-box-answer-correct-title js-answerTitle"></p>
@@ -80,8 +84,12 @@
         </div>
       </div>
       ${QuoteHtml}
-    </section>`)
+    </section>`
+  }  
   
+    QuizContainer.innerHTML = ALL_QUESTION.map((quizItem, index) => {
+      return createQuizHtml(quizItem,index)
+    }).join('')
 
   const allQuestion  = document.querySelectorAll('.js-quiz');
   const correct_text = '正解！';
@@ -114,9 +122,10 @@
 
         setDisabled(answers);
 
-        const ANSWER_ELEMENT = CORRECT_ANSWERS[selectedQuiz] 
-        const isCorrect = ANSWER_ELEMENT.index === selectedAnswer;
-        answerText.innerText = ANSWER_ELEMENT.value; 
+        const ANSWER_ELEMENT = ALL_QUESTION[selectedQuiz] 
+        const correctNumber = ANSWER_ELEMENT.CorrectIndex
+        const isCorrect = correctNumber === selectedAnswer;
+        answerText.innerText = ANSWER_ELEMENT.Answer[correctNumber]; 
         setAnsTitle(answerTitle, isCorrect);
         setClassName(answerBox, isCorrect);
       })
