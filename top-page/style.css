@@ -452,6 +452,7 @@ h1{
 .p-quiz-container{
   margin-top: 120px;
 } 
+
 .p-quiz-box-label{
   background-color: #0071bc;
   margin-top: 50px;
@@ -463,6 +464,10 @@ h1{
   color: #fff;
   display: inline-block;
   font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+}
+
+.p-quiz-box-question-title{
+  margin-top: 85px;
 }
 
 .p-quiz-box-question-title-text{
@@ -486,6 +491,8 @@ h1{
 }
 .p-quiz-box-answer-list{
   display: grid;
+  display: flex;
+  justify-content: space-between;
   gap: 24px;
   margin-top: 16px;
   padding-left: 0;
@@ -505,6 +512,7 @@ h1{
   line-height: 1.8;
   display: flex;
   width: 100%;
+  margin-right: 165px;
 } 
 
 .p-quiz-box-note{

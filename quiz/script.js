@@ -31,7 +31,7 @@
     {
       QuizNumber : 5,
       Question : 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？', 
-      Answer :['Web5.0','NFT','メタバース'],
+      Answer :['Web5.0','NFT','メタバース',"デジタルツイン"],
       CorrectIndex : 0,
     },
     {
@@ -45,7 +45,7 @@
 
   const QuizContainer = document.getElementById('js-QuizContainer');
 
-  const createQuizHtml = (quizItem,questionNumber) => {
+  const createQuizHtml = (quizItem) => {
 
 //<li>タグの解答HTML
   const AnswersHtml = quizItem.Answer.map((Answer,AnswerIndex) => `<li class="p-quiz-box-answer-item">
@@ -56,14 +56,14 @@
   ).join(''); //mapの中に無名関数を加えHTML内容を返値としている
 
 //<blockquote>タグのHTML
-  const QuoteHtml = quizItem.note ? `<blockquote class="p-quiz-box-note">
-    <i class="u-icon-note"></i>${quizItem.note}
+  const QuoteHtml = quizItem.Quote ? `<blockquote class="p-quiz-box-note">
+    <i class="u-icon-note"></i>${quizItem.Quote}
   </blockquote>` : "";
 
-  return `<section class="p-quiz-box js-quiz" quiz-number="${questionNumber}">
+  return `<section class="p-quiz-box js-quiz" quiz-number="${quizItem.QuizNumber-1}">
       <div class="p-quiz-box-question">
         <h2 class="p-quiz-box-question-title">
-          <span class="p-quiz-box-label">Q${questionNumber + 1 }</span>
+          <span class="p-quiz-box-label">Q${quizItem.QuizNumber}</span>
           <span class="p-quiz-box-question-title-text">${quizItem.Question}</span>
         </h2>
         <figure class="p-quiz-box-question-image">
