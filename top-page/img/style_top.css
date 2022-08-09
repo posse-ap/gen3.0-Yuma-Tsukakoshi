@@ -1,0 +1,93 @@
+
+
+/* ↓<header>↓ */
+
+/* ↑<header>↑*/
+
+/* ↓ <main>　↓ */
+.main-title{
+  position: absolute;
+  width: 376px;
+  height: 29px;
+  top: 238px;
+  left: 142px;
+  
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28.8px;
+
+  color: #0071BC;
+}
+
+.main-title-inner{
+  position: absolute;
+  width: 375px;
+  height: 160px;
+  top: 279px;
+  left: 142px;
+
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 80px;
+
+  letter-spacing: 0.05em;
+
+  color: #333;
+}
+
+.main_picture{
+  position: absolute;
+  width: 976px;
+  height: 680px;
+  left: 464px;
+  top: 0px;
+}
+
+.scroll{
+  position: absolute;
+  width: 88px;
+  height: 21px;
+  top: 635px;
+  left: 126px;
+
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #333;
+}
+
+.entire_picture{
+  width: 472px;
+  height: 312px;
+  
+  flex: none;  
+  order: 0;
+  flex-grow: 0; 
+}
+
+.top_content{
+  width: 472px;
+  height: 175px;
+
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  text-align: justify;
+  /* 端にめいいっぱい広がる */
+
+  color: #333;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+/* ↑<main>↑ */

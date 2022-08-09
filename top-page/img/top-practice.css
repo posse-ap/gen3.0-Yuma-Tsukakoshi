@@ -1,0 +1,331 @@
+@font-face {
+  font-display: inline-block;
+  font-family: "posse-icon";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./posse-icon.ttf?bbqgr3") format("truetype"), url("./posse-icon.woff?bbqgr3") format("woff"), url("./posse-icon.svg?bbqgr3#posse-icon") format("svg");
+}
+
+.p-header {
+  align-items: center; /* headerの真ん中 */
+  display: flex;
+}
+
+.l-header{
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.p-header-nav {
+  margin-left: auto;
+}
+
+.p-header-nav-list{
+  display: flex;
+  gap: 32px;
+}
+
+.p-header-nav-item-link{
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.p-header-sns {
+  margin-left: 20px;
+}
+
+.p-sns {
+  display: flex;
+  gap: 32px;
+}
+
+.p-sns-item-link {
+
+}
+
+.l-main{
+  padding: 80px;
+}
+
+.p-top-hero-inner{
+  display: flex;
+  max-width: 1280px;
+  /* margin: 0 auto; */
+  position: relative;
+}
+
+.p-top-hero-body{
+  -ms-grid-row-align: center;
+  align-self: center;
+  background-color: #eff2f5;
+  border-radius: 24px;
+  padding: 50px 62px;
+  position: relative;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.p-top-hero-body-title{
+  color: #0071bc;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+
+/* inherit 親要素の継承 */
+h1{ 
+  font-size: inherit; 
+  font-weight: inherit;
+  margin: 0%;
+}
+
+.p-top-hero-body-catchcopy{
+  display: inline-block;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 1.3333;
+  margin-top: 10px;
+  letter-spacing: 0.05em;
+}
+
+.p-top-hero-image{
+  display: block;
+  margin-left: -125px;
+  margin-right: calc(50% - 50vw);
+  max-height: 580px;
+  overflow: hidden;
+}
+
+.p-top-hero-scroll{
+  align-items: center;
+  bottom: 24px;
+  display: inline-flex;
+  font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  /* gap: 6px; */
+  left: 32px;
+  line-height: 1.5;
+  position: absolute;
+}
+
+.p-top-hero-scroll::before {
+  background-color: #ccc;
+  border-radius: 8px;
+  content: "";
+  display: inline-block;
+  margin: 5px;
+  height: 10px;
+  width: 10px;
+}
+
+.p-top-container{
+  margin-top: 96px;
+}
+
+.l-container{
+  margin: 0 auto;
+  max-width: 1032px;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.p-heading{
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.p-heading-caption{
+  color: #0071bc;
+  display: block;
+  font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  letter-spacing: initial;
+  line-height: 1.8;
+  margin-top: 8px;
+}
+
+.p-top-about-body{
+  display: -ms-grid;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(2,1fr);
+  margin-top: 42px;
+}
+
+.p-top-about-img{
+  overflow: hidden;
+
+}
+
+.p-top-about-content{
+  /* -ms-grid-row-align: center; */
+  align-self: center;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.p-line{
+  margin-top: 144px;
+}
+
+.l-container{
+
+}
+
+.p-line-body{
+  background: url(./bg-line.jpg) center center/cover;
+  border-radius: 56px;
+  overflow: hidden;
+  padding: 68px;
+  position: relative;
+}
+
+.p-line-body::before{
+  background-color: rgba(0, 113, 188, 0.9);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  /* 100%で全体に青いフィルターかかる */
+}
+
+.p-line-body-inner{
+  position: relative;
+}
+
+.p-line-title{
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.p-line-title .u-icon-line{
+  font-size: 40px;
+}
+
+.p-line-content{
+  color: #eee;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.p-line-footer{
+  margin-top: 16px;
+  text-align: center;
+}
+
+.p-line-button{
+  background-color: #fff;
+  border-radius: 50px;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+  max-width: 320px;
+  padding: 12px;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.l-footer{
+  border-top: solid 1px #eee;
+} 
+
+.p-footer{
+
+}
+
+.p-fixedLine{
+
+}
+
+.p-fixedLine-link{
+
+}
+
+.u-icon-line{
+
+}
+
+.p-fixedLine-link-text{
+
+}
+
+.u-icon-link{
+
+}
+
+.l-footer-inner{
+  padding: 56px 24px 48px;
+}
+
+.footer-siteinfo{
+
+}
+
+.p-footer-logo{
+  display: block;
+}
+
+.p-footer-siteinfo-link{
+  color: #666;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 24px;
+}
+
+.p-footer-sns{
+
+}
+
+.p-sns-list p-footer-sns-list{
+
+}
+
+.p-sns-item-link{
+
+}
+
+.u-icon__twitter{
+
+}
+
+.p-sns__item{
+
+}
+
+.p-sns-item-link{
+
+}
+
+.u-icon-instagram{
+
+}
+
+.p-footer-copyright{
+  border-top: solid 1px #eee;
+  color: #666;
+  font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+  font-size: 10px;
+  initial-letter: 0.1em;
+  line-height: 1.5;
+  padding: 38px 24px 33px;
+}
+
