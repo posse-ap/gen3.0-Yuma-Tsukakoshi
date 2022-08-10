@@ -53,7 +53,7 @@
         ${Answer}<i class="u-icon-arrow"></i>
     </button>
   </li>`
-  ).join(''); //mapの中に無名関数を加えHTML内容を返値としている
+  ).join(''); //mapメソッドにアロー関数で引数を2つ、valueとindexという名前でとる。1つ目の引数のvalueには配列の値が入り、2つ目の引数のindexにはインデックス番号が入る。
 
 //<blockquote>タグのHTML
   const QuoteHtml = quizItem.Quote ? `<blockquote class="p-quiz-box-note">
@@ -86,9 +86,10 @@
       ${QuoteHtml}
     </section>`
   }  
-
-    QuizContainer.innerHTML = ALL_QUESTION.map((quizItem, index) => {
-      return createQuizHtml(quizItem,index)
+    
+  //↓ALL＿QUESTIONの各要素をquizItemに格納
+    QuizContainer.innerHTML = ALL_QUESTION.map((quizItem) => {
+      return createQuizHtml(quizItem)
     }).join('')
 
   const allQuestion  = document.querySelectorAll('.js-quiz');
