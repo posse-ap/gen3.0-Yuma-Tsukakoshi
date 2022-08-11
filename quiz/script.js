@@ -45,7 +45,7 @@
 
   const QuizContainer = document.getElementById('js-QuizContainer');
 
-  const createQuizHtml = (quizItem) => {
+  const createQuizHtml = (quizItem,quizNumber) => {
 
 //<li>タグの解答HTML
   const AnswersHtml = quizItem.Answer.map((Answer,AnswerIndex) => `<li class="p-quiz-box-answer-item">
@@ -60,14 +60,14 @@
     <i class="u-icon-note"></i>${quizItem.Quote}
   </blockquote>` : "";
 
-  return `<section class="p-quiz-box js-quiz" quiz-number="${quizItem.QuizNumber-1}">
+  return `<section class="p-quiz-box js-quiz" quiz-number="${quizNumber}">
       <div class="p-quiz-box-question">
         <h2 class="p-quiz-box-question-title">
-          <span class="p-quiz-box-label">Q${quizItem.QuizNumber}</span>
+          <span class="p-quiz-box-label">Q${quizNumber+1}</span>
           <span class="p-quiz-box-question-title-text">${quizItem.Question}</span>
         </h2>
         <figure class="p-quiz-box-question-image">
-          <img src="./img/img-${quizItem.QuizNumber}.png" alt="">
+          <img src="./img/img-${quizNumber+1}.png" alt="">
         </figure>
       </div>
       <div class="p-quiz-box-answer">
@@ -99,8 +99,8 @@
   const ARR = fisherYatesShuffle(ALL_QUESTION)
 
   //↓ALL＿QUESTIONの各要素をquizItemに格納
-    QuizContainer.innerHTML = ARR.map((quizItem) => {
-      return createQuizHtml(quizItem)
+    QuizContainer.innerHTML = ARR.map((quizItem,quizNumber) => {
+      return createQuizHtml(quizItem,quizNumber)
     }).join('')
 
   const allQuestion  = document.querySelectorAll('.js-quiz');
