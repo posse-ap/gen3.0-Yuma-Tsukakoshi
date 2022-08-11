@@ -31,7 +31,7 @@
     {
       QuizNumber : 5,
       Question : 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？', 
-      Answer :['Web5.0','NFT','メタバース',"デジタルツイン"],
+      Answer :['Web5.0','NFT','メタバース'],
       CorrectIndex : 0,
     },
     {
@@ -86,9 +86,20 @@
       ${QuoteHtml}
     </section>`
   }  
-    
+
+
+  function fisherYatesShuffle(arr){
+    for(let i =arr.length-1 ; i>0 ;i--){
+        let j = Math.floor( Math.random() * (i + 1) ); //random index
+        [arr[i],arr[j]]=[arr[j],arr[i]]; // swap
+    }
+    return arr
+}
+
+  const ARR = fisherYatesShuffle(ALL_QUESTION)
+
   //↓ALL＿QUESTIONの各要素をquizItemに格納
-    QuizContainer.innerHTML = ALL_QUESTION.map((quizItem) => {
+    QuizContainer.innerHTML = ARR.map((quizItem) => {
       return createQuizHtml(quizItem)
     }).join('')
 
@@ -123,7 +134,7 @@
 
         setDisabled(answers);
 
-        const ANSWER_ELEMENT = ALL_QUESTION[selectedQuiz] 
+        const ANSWER_ELEMENT = ARR[selectedQuiz] 
         const correctNumber = ANSWER_ELEMENT.CorrectIndex
         const isCorrect = correctNumber === selectedAnswer;
         answerText.innerText = ANSWER_ELEMENT.Answer[correctNumber]; 
