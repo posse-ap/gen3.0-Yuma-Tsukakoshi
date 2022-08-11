@@ -48,12 +48,21 @@
   const createQuizHtml = (quizItem,quizNumber) => {
 
 //<li>タグの解答HTML
+  function AnsShuffle(arr){
+    for(let i =arr.length-1 ; i>0 ;i--){
+        let j = Math.floor( Math.random() * (i + 1) ); //random index
+        [arr[i],arr[j]]=[arr[j],arr[i]]; // swap
+    }
+    return arr
+  }
+
   const AnswersHtml = quizItem.Answer.map((Answer,AnswerIndex) => `<li class="p-quiz-box-answer-item">
       <button class="p-quiz-box-answer-button js-answer" answer-index="${AnswerIndex}">
         ${Answer}<i class="u-icon-arrow"></i>
     </button>
   </li>`
-  ).join(''); //mapメソッドにアロー関数で引数を2つ、valueとindexという名前でとる。1つ目の引数のvalueには配列の値が入り、2つ目の引数のindexにはインデックス番号が入る。
+  ); //mapメソッドにアロー関数で引数を2つ、valueとindexという名前でとる。1つ目の引数のvalueには配列の値が入り、2つ目の引数のindexにはインデックス番号が入る。
+  const Shulle_Answer_HTML = AnsShuffle(AnswersHtml).join("")
 
 //<blockquote>タグのHTML
   const QuoteHtml = quizItem.Quote ? `<blockquote class="p-quiz-box-note">
@@ -67,13 +76,13 @@
           <span class="p-quiz-box-question-title-text">${quizItem.Question}</span>
         </h2>
         <figure class="p-quiz-box-question-image">
-          <img src="./img/img-${quizNumber+1}.png" alt="">
+          <img src="./img/img-${quizItem.QuizNumber}.png" alt="">
         </figure>
       </div>
       <div class="p-quiz-box-answer">
         <span class="p-quiz-box-label p-quiz-box-label-accent">A</span>
         <ul class="p-quiz-box-answer-list">
-          ${AnswersHtml}
+          ${Shulle_Answer_HTML}
         </ul>
         <div class="p-quiz-box-answer-correct js-answerBox">
           <p class="p-quiz-box-answer-correct-title js-answerTitle"></p>
@@ -87,8 +96,7 @@
     </section>`
   }  
 
-
-  function fisherYatesShuffle(arr){
+  function QuizNumberShuffle(arr){
     for(let i =arr.length-1 ; i>0 ;i--){
         let j = Math.floor( Math.random() * (i + 1) ); //random index
         [arr[i],arr[j]]=[arr[j],arr[i]]; // swap
@@ -96,10 +104,10 @@
     return arr
 }
 
-  const ARR = fisherYatesShuffle(ALL_QUESTION)
+  const Shuffle_Question = QuizNumberShuffle(ALL_QUESTION);
 
   //↓ALL＿QUESTIONの各要素をquizItemに格納
-    QuizContainer.innerHTML = ARR.map((quizItem,quizNumber) => {
+    QuizContainer.innerHTML = Shuffle_Question.map((quizItem,quizNumber) => {
       return createQuizHtml(quizItem,quizNumber)
     }).join('')
 
@@ -134,7 +142,7 @@
 
         setDisabled(answers);
 
-        const ANSWER_ELEMENT = ARR[selectedQuiz] 
+        const ANSWER_ELEMENT = Shuffle_Question[selectedQuiz] 
         const correctNumber = ANSWER_ELEMENT.CorrectIndex
         const isCorrect = correctNumber === selectedAnswer;
         answerText.innerText = ANSWER_ELEMENT.Answer[correctNumber]; 
