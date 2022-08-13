@@ -16,6 +16,33 @@ main {
   display: block;
 }
 
+/* hamburger-start */
+@media screen and (max-width:540px){
+    header nav , header li{
+      display: none;
+    }
+    .header-item{
+      height: 2px;
+      width: 34px;
+      background-color: #666;
+      border-radius: 25px;
+      margin: 15px 0;
+      transition: all 0.3s ease;
+    }
+    .header-wrapper{
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: 0px;
+    }
+    .show-animate .line1{
+      transform: translateY(8px) rotate(-45deg);
+    }
+    .show-animate .line2{
+      transform: translateY(-8px) rotate(45deg);
+    }
+}
+/* hamburger-finish */
+
 @font-face {
   font-display: inline-block;
   font-family: "posse-icon";
