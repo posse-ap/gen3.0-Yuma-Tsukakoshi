@@ -54,7 +54,6 @@ body {
   background-color: #fff;
   display: flex;
   padding: 15px 24px 0px 24px; 
-
 }
 
 .l-header{
@@ -607,4 +606,4 @@ button:disabled{
 
 .p-quiz-container {
   margin-top: 120px;
-} 
+}

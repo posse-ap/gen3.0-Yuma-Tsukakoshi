@@ -55,12 +55,13 @@
     }
     return arr
   }
-
+  
   const AnswersHtml = quizItem.Answer.map((Answer,AnswerIndex) => `<li class="p-quiz-box-answer-item">
       <button class="p-quiz-box-answer-button js-answer" answer-index="${AnswerIndex}">
         ${Answer}<i class="u-icon-arrow"></i>
     </button>
   </li>`
+
   ); //mapメソッドにアロー関数で引数を2つ、valueとindexという名前でとる。1つ目の引数のvalueには配列の値が入り、2つ目の引数のindexにはインデックス番号が入る。
   const Shulle_Answer_HTML = AnsShuffle(AnswersHtml).join("")
 
@@ -73,6 +74,7 @@
       <div class="p-quiz-box-question">
         <h2 class="p-quiz-box-question-title">
           <span class="p-quiz-box-label">Q${quizNumber+1}</span>
+          
           <span class="p-quiz-box-question-title-text">${quizItem.Question}</span>
         </h2>
         <figure class="p-quiz-box-question-image">
