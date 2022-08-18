@@ -31,7 +31,7 @@
     {
       QuizNumber : 5,
       Question : 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？', 
-      Answer :['Web5.0','NFT','メタバース',"デジタルツイン"],
+      Answer :['Web5.0','NFT','メタバース'],
       CorrectIndex : 0,
     },
     {
@@ -45,25 +45,36 @@
 
   const QuizContainer = document.getElementById('js-QuizContainer');
 
-  const createQuizHtml = (quizItem) => {
+  const createQuizHtml = (quizItem,quizNumber) => {
 
 //<li>タグの解答HTML
+  function AnsShuffle(arr){
+    for(let i =arr.length-1 ; i>0 ;i--){
+        let j = Math.floor( Math.random() * (i + 1) ); //random index
+        [arr[i],arr[j]]=[arr[j],arr[i]]; // swap
+    }
+    return arr
+  }
+  
   const AnswersHtml = quizItem.Answer.map((Answer,AnswerIndex) => `<li class="p-quiz-box-answer-item">
       <button class="p-quiz-box-answer-button js-answer" answer-index="${AnswerIndex}">
         ${Answer}<i class="u-icon-arrow"></i>
     </button>
   </li>`
-  ).join(''); //mapの中に無名関数を加えHTML内容を返値としている
+
+  ); //mapメソッドにアロー関数で引数を2つ、valueとindexという名前でとる。1つ目の引数のvalueには配列の値が入り、2つ目の引数のindexにはインデックス番号が入る。
+  const Shulle_Answer_HTML = AnsShuffle(AnswersHtml).join("")
 
 //<blockquote>タグのHTML
   const QuoteHtml = quizItem.Quote ? `<blockquote class="p-quiz-box-note">
     <i class="u-icon-note"></i>${quizItem.Quote}
   </blockquote>` : "";
 
-  return `<section class="p-quiz-box js-quiz" quiz-number="${quizItem.QuizNumber-1}">
+  return `<section class="p-quiz-box js-quiz" quiz-number="${quizNumber}">
       <div class="p-quiz-box-question">
         <h2 class="p-quiz-box-question-title">
-          <span class="p-quiz-box-label">Q${quizItem.QuizNumber}</span>
+          <span class="p-quiz-box-label">Q${quizNumber+1}</span>
+          
           <span class="p-quiz-box-question-title-text">${quizItem.Question}</span>
         </h2>
         <figure class="p-quiz-box-question-image">
@@ -73,7 +84,7 @@
       <div class="p-quiz-box-answer">
         <span class="p-quiz-box-label p-quiz-box-label-accent">A</span>
         <ul class="p-quiz-box-answer-list">
-          ${AnswersHtml}
+          ${Shulle_Answer_HTML}
         </ul>
         <div class="p-quiz-box-answer-correct js-answerBox">
           <p class="p-quiz-box-answer-correct-title js-answerTitle"></p>
@@ -86,9 +97,20 @@
       ${QuoteHtml}
     </section>`
   }  
-  
-    QuizContainer.innerHTML = ALL_QUESTION.map((quizItem, index) => {
-      return createQuizHtml(quizItem,index)
+
+  function QuizNumberShuffle(arr){
+    for(let i =arr.length-1 ; i>0 ;i--){
+        let j = Math.floor( Math.random() * (i + 1) ); //random index
+        [arr[i],arr[j]]=[arr[j],arr[i]]; // swap
+    }
+    return arr
+}
+
+  const Shuffle_Question = QuizNumberShuffle(ALL_QUESTION);
+
+  //↓ALL＿QUESTIONの各要素をquizItemに格納
+    QuizContainer.innerHTML = Shuffle_Question.map((quizItem,quizNumber) => {
+      return createQuizHtml(quizItem,quizNumber)
     }).join('')
 
   const allQuestion  = document.querySelectorAll('.js-quiz');
@@ -122,7 +144,7 @@
 
         setDisabled(answers);
 
-        const ANSWER_ELEMENT = ALL_QUESTION[selectedQuiz] 
+        const ANSWER_ELEMENT = Shuffle_Question[selectedQuiz] 
         const correctNumber = ANSWER_ELEMENT.CorrectIndex
         const isCorrect = correctNumber === selectedAnswer;
         answerText.innerText = ANSWER_ELEMENT.Answer[correctNumber]; 
@@ -131,4 +153,4 @@
       })
     })
   })
-}
+} 
