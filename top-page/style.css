@@ -94,7 +94,6 @@ body {
   top: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
-
 .l-header{
   left: 0;
   position: fixed;
@@ -224,7 +223,6 @@ h1{
 .p-top-hero-image{
   display: block;
   overflow: hidden;
-
 }
 
 .p-top-hero-scroll{
@@ -378,7 +376,6 @@ h1{
   top: 50%;
   transform: translate(0, -50%);
 }
-
 .l-footer{
   border-top: solid 1px #eee;
 } 
@@ -594,7 +591,6 @@ h1{
   line-height: 1.8;
   display: flex;
   width: 100%;
-  /* margin-right: 165px; */
 } 
 
 .p-quiz-box-note{
