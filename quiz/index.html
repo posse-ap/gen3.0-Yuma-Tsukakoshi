@@ -12,40 +12,46 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
     rel="stylesheet">
-  <script src="./script.js" defer></script>
-  <script src="../hamburger-menu/script.js" defer></script>
+  <script src="../scripts/script.js" defer></script>
+  <script src="../scripts/quiz.js" defer></script>
 </head>
 
 <body>
-  <header class="l-header p-header">
+  <header id="js-header" class="l-header p-header">
     <div class="p-header-logo"><img src="./img/logo.png" alt="POSSE"></div>
-    <nav class="p-header-nav">
-      <ul class="p-header-nav-list">
-        <li>
-          <a href="../top-page/index.html" class="p-header-nav-item-link">POSSEとは</a>
+    <button class="p-header-button" id="js-headerButton"></button>
+    <div class="p-header-wrapper">
+      <nav class="p-header-nav">
+        <ul class="p-header-nav-list">
+          <li>
+            <a href="../top-page/index.html" class="p-header-nav-item-link">POSSEとは</a>
+          </li>
+          <li>
+            <a href="./index.html" class="p-header-nav-item-link">クイズ</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="p-header-official">
+        <a href="https://line.me/R/ti/p/@651htnqp?from=page" target="_blank" rel="noopener noreferrer" class="p-header-official-link-line">
+          <i class="u-icon-line"></i>
+          <span class="">POSSE公式LINEを追加</span>
+          <i class="u-icon-link"></i>
+        </a>
+        <a href="https://posse-ap.com/" class="p-header-official-link-website">POSSE 公式サイト<i class="u-icon-link"></i></a>
+      </div>
+      <ul class="p-header-sns p-sns">
+        <li class="p-sns-item">
+          <a href="https://twitter.com/posse_program" target="_blank" rel="noopener noreferrer" class="p-sns-item-link"
+          aria-label="Twitter">
+            <i class="u-icon-twitter"></i>
+          </a>
         </li>
-        <li>
-          <a href="./index.html" class="p-header-nav-item-link">クイズページ</a>
+        <li class="p-sns-item">
+          <a href="https://www.instagram.com/posse_programming/" target="_blank" rel="noopener noreferrer" class="p-sns-item-link" aria-label="instagram">
+            <i class="u-icon-instagram"></i>
+          </a>
         </li>
       </ul>
-    </nav>
-    <ul class="p-header-sns p-sns">
-      <li class="p-sns-item">
-        <a href="https://twitter.com/posse_program" target="_blank" rel="noopener noreferrer" class="p-sns-item-link"
-        aria-label="Twitter">
-          <i class="u-icon-twitter"></i>
-        </a>
-      </li>
-      <li class="p-sns-item">
-        <a href="https://www.instagram.com/posse_programming/" target="_blank" rel="noopener noreferrer" class="p-sns-item-link" aria-label="instagram">
-          <i class="u-icon-instagram"></i>
-        </a>
-      </li>
-    </ul>
-    <div class="header-wrapper">
-      <div class="header-item line1"></div>
-      <div class="header-item line2"></div>
-      <a href="../hamburger-menu/index.html"></a>
     </div>
   </header>
 
@@ -58,11 +64,11 @@
         </h1>
       </div>
     </section>
-
+    
     <!-- script.js埋め込み -->
     <div class="l-container" id="js-QuizContainer"></div>
-
-  </main>>
+    <!-- script.js埋め込み -->
+  </main>
 
   <div class="p-line">
     <div class="l-container">
@@ -115,7 +121,6 @@
       <small lang="en">&copy 2022 POSSE</small>
     </div>
   </footer>
-
 </body>
 
 </html>
