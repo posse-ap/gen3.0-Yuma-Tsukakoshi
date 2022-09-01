@@ -13,6 +13,9 @@ a{
 li{
   list-style: none;
 }
+button{
+  cursor: pointer;
+}
 
 
 /* header */
@@ -20,13 +23,14 @@ li{
   top: 0;
   position: fixed;
   background-color: #fff;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
   width: 100%;
   z-index: 1;
+}
+.header-nav{
+  height: 64px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 .header-logo{
   padding: 12px 40px;
@@ -44,16 +48,68 @@ li{
   background: linear-gradient(to right,#0074BB 0%, #02CDFB 100%); 
   border-radius: 25px;
   padding: 12px 50px;
-  margin-right: 5%;
+  margin-right: 20px;
   text-align: center;
   box-shadow: 4px 5px 5px 0 #9bdceb;
   border: none;
 }
+/*
+modal 
+*/
+.overlay{}
+.modal{
+  display: none;
+  position: absolute; 
+  inset: 0;  
+}
+.modal:before {
+  content: "";
+  display: block;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, .7);
+  inset: 0;
+}
+.overlay.openModal > .modal {
+  display: block;
+}
+.overlay.openModal > .modal-close-button {
+  display: block;
+}
+.modal-content{
+  position: absolute;
+  width: 900px;
+  height: 540px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 30%; 
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.modal-close-button{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(#efefef, 0.7);
+  border: none;
+  position: absolute;
+  display: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 30px;
+  margin-right: 20px;
+  right: 0;
+  line-height: 1;
+}
+
 
 /* body */
 .top-main{
   margin-top: 84px;
-  /* width: 1351px; */
 }
 .both-wrapper{
   position: relative;
@@ -76,7 +132,7 @@ li{
 /* 
 hour-time
 */
-.hour-section{}
+/* .hour-section{} */
 .hour-list{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -161,9 +217,10 @@ footer-label
   font-weight: bold;
   margin: 40px 0;
 }
-.footer-label{}
+/* .footer-label{} */
 .icon-arrow{
   display: block;
+  cursor: pointer;
   width: 20px;
   height: 20px;
   filter: opacity(0.5) drop-shadow(0 0 0 #0074BB);
