@@ -53,10 +53,33 @@ button{
   box-shadow: 4px 5px 5px 0 #9bdceb;
   border: none;
 }
+.sharing-wrapper{
+  align-items: center;
+  display: flex;
+}
+.share-text{
+  font-size: 14px;
+}
+.icon-check img{
+  display: block;
+  background-color: #fff;
+  border-radius: 50%;
+  overflow: hidden; 
+  margin-right: 10px;
+  width: 30px;
+  height: 30px; 
+}
+.header-button.bottom{
+  display: block;
+  font-size: 18px;
+  padding: 15px 120px;
+  text-align: center;
+  margin: 20px auto 0 auto;
+}
 /*
 modal 
 */
-.overlay{}
+/* .overlay{} */
 .modal{
   display: none;
   position: absolute; 
@@ -80,10 +103,8 @@ modal
   position: absolute;
   width: 900px;
   height: 540px;
-  text-align: center;
   background-color: #fff;
   border-radius: 30px;
-  padding: 10px;
   margin-top: 30%; 
   z-index: 2;
   top: 50%;
@@ -100,12 +121,59 @@ modal
   display: none;
   display: inline-block;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 24px;
+  color: rgb(100, 100, 100);
+  margin-top: 10px;
   margin-right: 20px;
   right: 0;
   line-height: 1;
 }
 
+/* 
+modal-contents
+*/
+.modal-title{
+  font-weight: bold;
+  font-size: 14px;
+}
+.modal-upper{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 40px;
+  margin: 40px 56px 20px 56px;
+}
+.modal-lower{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 40px;
+  margin: 10px 56px;
+}
+.study-day{}
+.study-day-box{
+  background-color: #efefef;
+  border-radius: 16px;
+  margin-top: 5px;
+  padding: 20px;
+}
+.study-time{}
+.study-time-box{
+  background-color: #efefef;
+  border-radius: 16px;
+  margin-top: 5px;
+  padding: 20px;
+}
+.study-items{}
+.study-contents{}
+.study-language{}
+.twitter-section{}
+.twitter-comment-box{
+  background-color: #efefef;
+  border-radius: 16px;
+  margin-top: 5px;
+  height: 250px;
+}
+.shere-text{}
+.icon-check{}
 
 /* body */
 .top-main{
