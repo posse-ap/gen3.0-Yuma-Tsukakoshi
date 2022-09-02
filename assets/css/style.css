@@ -4,7 +4,7 @@
 }
 
 body{
-  background-color: #efefef;
+  background-color: #fafafa;
 }
 
 a{
@@ -115,7 +115,7 @@ modal
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  background-color: rgba(#efefef, 0.7);
+  background-color: rgba(#fafafa, 0.7);
   border: none;
   position: absolute;
   display: none;
@@ -150,14 +150,14 @@ modal-contents
 }
 .study-day{}
 .study-day-box{
-  background-color: #efefef;
+  background-color: #fafafa;
   border-radius: 16px;
   margin-top: 5px;
   padding: 20px;
 }
 .study-time{}
 .study-time-box{
-  background-color: #efefef;
+  background-color: #fafafa;
   border-radius: 16px;
   margin-top: 5px;
   padding: 20px;
@@ -167,7 +167,7 @@ modal-contents
 .study-language{}
 .twitter-section{}
 .twitter-comment-box{
-  background-color: #efefef;
+  background-color: #fafafa;
   border-radius: 16px;
   margin-top: 5px;
   height: 250px;
