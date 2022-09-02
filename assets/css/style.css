@@ -17,7 +17,6 @@ button{
   cursor: pointer;
 }
 
-
 /* header */
 .top-header{
   top: 0;
@@ -41,7 +40,7 @@ button{
   display: block;
   margin-left: 15px;
   font-size: 14px;
-  color: rgb(176, 221, 233);
+  color: #6ba0f0;
 }
 .header-button{
   color: #fff;
@@ -230,7 +229,7 @@ hour-time
 }
 .hour-text{
   display: block;
-  color: #9bdceb;
+  color: #6ba0f0;
   letter-spacing: 0.05em;
 }
 /*
@@ -239,9 +238,11 @@ bar-graph
 .bar-graph{
   margin-top: 40px;
   background-color: #fff;
-  height: 440px;
   border-radius: 16px;
   box-shadow: 5px 5px 2px 0 #e2dede;
+}
+#bar-charts {
+  padding: 0 15px;
 }
 /*
 study-language
