@@ -17,6 +17,16 @@ button{
   cursor: pointer;
 }
 
+/* modal-switch */
+/* .js-display-block{
+  display: block;
+}
+.js-display-none{
+  display: none;
+} */
+/* 記録・投稿ボタンが押されたら modal-topのdisplayをnoneにしてloadingをblockにする*/
+/* loadingがblockになってから５秒後にrecordのdisplayをblockに変更する */
+
 /* header */
 .top-header{
   top: 0;
@@ -131,6 +141,9 @@ modal
 /* 
 modal-contents
 */
+.modal-top{
+  display: block;
+}
 .modal-title{
   font-weight: bold;
   font-size: 14px;
@@ -173,6 +186,79 @@ modal-contents
 }
 .shere-text{}
 .icon-check{}
+
+/* 
+modal-record-done
+*/
+.access-record{
+  display: none;
+}
+.access-record{
+  margin-top: 20%;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+}
+.record-title{
+  display: block;
+  font-size: 16px;
+  color: rgb(201, 243, 87);
+}
+.icon-check-done{
+  margin: 10px 0 20px 0;
+}
+.icon-check-done img{
+  background-color: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+}
+.record-text{
+  display: block;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* 
+modal-loading
+*/
+.loading{
+  display: none;
+}
+.circle{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background-image: linear-gradient(to left,#0074BB 0%, #02CDFB 100%); 
+  box-sizing:border-box;
+  position:relative;
+  margin-top: 23%;
+  left: 45%;
+  animation:circle 0.9s linear infinite;
+  -webkit-animation:circle 0.9s linear infinite;
+  border: 15px solid transparent;
+  border-top-color: #fff;
+}
+.circle::before{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  content: "";
+  border-radius: 50%;
+  border: none;
+  overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+}
+@keyframes circle{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+@-webkit-keyframes circle{
+  0%{-webkit-transform:rotate(0deg)}
+  100%{-webkit-transform:rotate(360deg)}
+}
 
 /* body */
 .top-main{

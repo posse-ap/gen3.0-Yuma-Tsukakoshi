@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="./assets/scripts/jquery-3.6.1.min.js" defer></script>
-  <script src="https://unpkg.com/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="https://unpkg.com/apexcharts/dist/apexcharts.min.js" defer></script>
   <script src="./assets/scripts/bar-charts.js" defer></script>
   <script src="./assets/scripts/donut-charts-1.js" defer></script>
-  <script src="./assets/scripts/donut-charts-2.js"></script>
+  <script src="./assets/scripts/donut-charts-2.js" defer></script>
   <script src="./assets/scripts/modal.js" defer></script>
 </head>
 
@@ -26,47 +26,63 @@
     </nav>
     <div class="overlay">
       <div class="modal">
-        <div class="modal-content">
+        <div class="modal-content" id="js-modal-content">
           <button class="modal-close-button js-closeModal">x</button>
-          <!-- jsで中身の内容を変えてく -->
-          <div class="modal-upper">
-            <div class="study-day">
-              <label for="" class="modal-title">学習日</label>
-              <div class="study-day-box">
-                2020年10月27日（仮）
-              </div>
-            </div>
-            <div class="study-time">
-              <label for="" class="modal-title">学習時間</label>
-              <div class="study-time-box">
-                120分（仮）
-              </div>
-            </div>
-          </div>
-          <div class="modal-lower">
-            <div class="study-items">
-              <div class="study-contents">
-                <label for="" class="modal-title">学習コンテンツ(複数選択可)</label>
-              </div>
-              <div class="study-language">
-                <label for="" class="modal-title">学習言語(複数選択可)</label>
-              </div>
-            </div>
-            <div class="twitter-section">
-              <label for="" class="modal-title">Twitter用コメント</label>
-              <div class="twitter-comment-box">
-                POSSE
-              </div>
-              <div class="sharing-wrapper">
-                <figure class="icon-check">
-                  <img src="./assets/img/icon-check-twitter.png"  alt="">
-                </figure>
-                <p class="share-text">Twitterにシェアする</p>
-              </div>
-            </div>
-          </div>
-          <button class="header-button bottom">記録・投稿</button>
           <!-- jsで中身の内容変えてく -->
+          <div class="modal-top" id="modal-top">
+            <div class="modal-upper">
+              <div class="study-day">
+                <label for="" class="modal-title">学習日</label>
+                <div class="study-day-box">
+                  2020年10月27日（仮）
+                </div>
+              </div>
+              <div class="study-time">
+                <label for="" class="modal-title">学習時間</label>
+                <div class="study-time-box">
+                  120分（仮）
+                </div>
+              </div>
+            </div>
+            <div class="modal-lower">
+              <div class="study-items">
+                <div class="study-contents">
+                  <label for="" class="modal-title">学習コンテンツ(複数選択可)</label>
+                </div>
+                <div class="study-language">
+                  <label for="" class="modal-title">学習言語(複数選択可)</label>
+                </div>
+              </div>
+              <div class="twitter-section">
+                <label for="" class="modal-title">Twitter用コメント</label>
+                <div class="twitter-comment-box">
+                  POSSE
+                </div>
+                <div class="sharing-wrapper">
+                  <figure class="icon-check">
+                    <img src="./assets/img/icon-check-twitter.png"  alt="">
+                  </figure>
+                  <p class="share-text">Twitterにシェアする</p>
+                </div>
+              </div>
+            </div>
+            <button class="header-button bottom" id="record-modalButton">記録・投稿</button>
+          </div>
+          <!-- top-modal -->
+          
+          <div class="access-record open-record" id="access-record">
+            <span class="record-title">AWESOME!</span>
+            <figure class="icon-check-done">
+              <img src="./assets/img/icon-check-done.png" alt="">
+            </figure>
+            <span class="record-text">記録・投稿<br>完了しました</span>
+          </div>
+          <!-- record-modal -->
+          
+          <div class="loading open-loading" id="loading">
+            <div class="circle"></div>
+          </div>
+          <!-- loading-modal -->
         </div>
       </div>
     </div>
