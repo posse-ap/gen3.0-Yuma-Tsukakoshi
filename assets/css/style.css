@@ -10,22 +10,93 @@ body{
 a{
   text-decoration: none;
 }
+ul{
+  margin: 0;
+  padding: 0;
+}
 li{
   list-style: none;
 }
 button{
   cursor: pointer;
 }
-
-/* modal-switch */
-/* .js-display-block{
-  display: block;
+input{
+  border: none;
+  cursor: pointer;
 }
-.js-display-none{
+textarea{
+  cursor: pointer;
+}
+input[type=checkbox]{
   display: none;
-} */
-/* 記録・投稿ボタンが押されたら modal-topのdisplayをnoneにしてloadingをblockにする*/
-/* loadingがblockになってから５秒後にrecordのdisplayをblockに変更する */
+}
+input[type=checkbox]:checked{
+  display: none;
+}
+input[type=checkbox] + label {
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px 10px 10px 30px;
+  position: relative;
+  width: auto;
+}
+input[type=checkbox] + label::before{
+  position: absolute;
+  top: 45%;
+  left: 6px;
+  display: block;
+  margin-top: -8px;
+  width: 20px;
+  height: 20px;
+  content: '';
+  background: #c8c8c9;
+  border-radius: 50%;
+}
+input[type=checkbox] + label::after {
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  content: '';
+  display: block;
+  height: 9px;
+  left: 12px;
+  margin-top: -7px;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+  width: 5px;
+}
+input[type=checkbox]:checked + label {
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px 10px 10px 30px;
+  position: relative;
+  width: auto;
+}
+input[type=checkbox]:checked + label::before{
+  position: absolute;
+  top: 45%;
+  left: 6px;
+  display: block;
+  margin-top: -8px;
+  width: 20px;
+  height: 20px;
+  content: '';
+  background: #0074BB;
+  border-radius: 50%;
+}
+input[type=checkbox]:checked + label::after {
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  content: '';
+  display: block;
+  height: 9px;
+  left: 12px;
+  margin-top: -7px;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+  width: 5px;
+}
 
 /* header */
 .top-header{
@@ -83,7 +154,7 @@ button{
   font-size: 18px;
   padding: 15px 120px;
   text-align: center;
-  margin: 20px auto 0 auto;
+  margin: 0 auto 10px auto;
 }
 /*
 modal 
@@ -124,7 +195,7 @@ modal
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  background-color: rgba(#fafafa, 0.7);
+  background-color: rgba(#f2f3f7, 0.7);
   border: none;
   position: absolute;
   display: none;
@@ -162,30 +233,59 @@ modal-contents
 }
 .study-day{}
 .study-day-box{
-  background-color: #fafafa;
+  background-color: #f2f3f7;
   border-radius: 16px;
   margin-top: 5px;
   padding: 20px;
+  width: 350px;
+  cursor: pointer;
 }
 .study-time{}
 .study-time-box{
-  background-color: #fafafa;
-  border-radius: 16px;
+  background-color: #f2f3f7;
   margin-top: 5px;
+  border-radius: 16px;
   padding: 20px;
 }
-.study-items{}
-.study-contents{}
-.study-language{}
+.study-contents{
+  display: grid;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.contents-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+.study-language{
+  display: grid;
+  gap: 12px;
+}
+.language-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
 .twitter-section{}
 .twitter-comment-box{
-  background-color: #fafafa;
-  border-radius: 16px;
+  background-color: #f2f3f7;
   margin-top: 5px;
-  height: 250px;
+  padding: 15px 15px;
+  border-radius: 16px;
+  border: none;
+  resize: none;
 }
 .shere-text{}
-.icon-check{}
+
+.label{
+  background-color: #f2f3f7;
+  border-radius: 15px;
+  letter-spacing: 0.05em;
+}
 
 /* 
 modal-record-done
