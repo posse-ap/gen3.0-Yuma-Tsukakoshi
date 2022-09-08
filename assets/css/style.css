@@ -67,6 +67,7 @@ input[type=checkbox] + label::after {
 }
 input[type=checkbox]:checked + label {
   box-sizing: border-box;
+  background-color: #d3e4f8;
   cursor: pointer;
   padding: 10px 10px 10px 30px;
   position: relative;
@@ -283,7 +284,7 @@ modal-contents
 
 .label{
   background-color: #f2f3f7;
-  border-radius: 15px;
+  border-radius: 30px;
   letter-spacing: 0.05em;
 }
 
