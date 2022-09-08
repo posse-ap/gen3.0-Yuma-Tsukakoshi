@@ -28,19 +28,19 @@
       <div class="modal">
         <div class="modal-content" id="js-modal-content">
           <button class="modal-close-button js-closeModal">x</button>
+          <button class="modal-back-button js-backModal">←</button>
         <!-- jsで中身の内容変えてく -->
           <div class="modal-top" id="modal-top">
             <div class="modal-upper">
               <div class="study-day">
                 <h2 class="modal-title">学習日</h2>
-                <input class="study-day-box" type="button" id="day" name="day"
-                onclick="showCalender();">
+                <input class="study-day-box" type="button" id="studyDay-modalButton" name="study-day">
                 </input>
               </div>
               <div class="study-time">
                 <h2 class="modal-title">学習時間</h2>
-                <input class="study-time-box" type="text" id="hour" 
-                name="hour"
+                <input class="study-time-box" type="text" id="studyHour" 
+                name="study-hour"
                 size="34">
                 </input>
               </div>
@@ -95,6 +95,69 @@
           </div>
           <!-- loading-modal -->
 
+          <!-- currender -->
+          <table class="calender open-calendar" id="calendar">
+            <thead>
+              <tr>
+                <th id="title" colspan="7"><span class="arrow left head"></span>2020年10月<span class="arrow right head"></span></th>
+              </tr>
+              <tr class="day">
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="disabled">1</td>
+                <td class="disabled">1</td>
+                <td class="disabled">1</td>
+                <td class="disabled">1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="today">1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="decision-wrapper">
+                <th colspan="2"></th>
+                <th class="decision-button" colspan="3">決定</th>
+                <th colspan="2"></th>
+              </tr>
+            </tfoot>
+          </table>
+
         <!-- jsでの変更アイテム終了 -->
         </div>
       </div>
@@ -138,10 +201,10 @@
       </div>
     </div>
     <div class="footer-section">
-      <div class="footer-items">
-        <img src="./assets/img/arrow.png" class="icon-arrow right">
+      <div class="footer-items left">
+        <span class="arrow left"></span>
         <p class="footer-label">2020年 10月</p> 
-        <img src="./assets/img/arrow.png" class="icon-arrow left">
+        <span class="arrow right"></span>
       </div>
     </div>
 
