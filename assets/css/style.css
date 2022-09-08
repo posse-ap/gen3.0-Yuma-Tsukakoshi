@@ -231,7 +231,7 @@ modal-contents
   gap: 40px;
   margin: 10px 56px;
 }
-.study-day{}
+/* .study-day{} */
 .study-day-box{
   background-color: #f2f3f7;
   border-radius: 16px;
@@ -240,7 +240,7 @@ modal-contents
   width: 350px;
   cursor: pointer;
 }
-.study-time{}
+/* .study-time{} */
 .study-time-box{
   background-color: #f2f3f7;
   margin-top: 5px;
@@ -270,7 +270,7 @@ modal-contents
   padding: 0;
   margin: 0;
 }
-.twitter-section{}
+/* .twitter-section{} */
 .twitter-comment-box{
   background-color: #f2f3f7;
   margin-top: 5px;
@@ -279,7 +279,7 @@ modal-contents
   border: none;
   resize: none;
 }
-.shere-text{}
+/* .shere-text{} */
 
 .label{
   background-color: #f2f3f7;
@@ -444,6 +444,13 @@ study-language
   letter-spacing: 0.03em;
   font-weight: bold;
 }
+/* 
+circle-charts1 & 2
+*/
+.circle-graph{
+  margin-top: 50px;
+} 
+
 /*
 study-contents
 */
