@@ -4,10 +4,11 @@
   const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   const date = new Date()
   let year = date.getFullYear()
-  let thisyear = date.getFullYear()
+  const thisyear = date.getFullYear()
   let month = date.getMonth() + 1
-  let thismonth = date.getMonth()
+  const thismonth = date.getMonth()
   let day = date.getDate()
+  const today = date.getDate()
   const config = {
       show: 1,
   }
@@ -45,7 +46,7 @@
           calendarHtml += '<td class="date">' + weeks[i] + '</td>'
       }
   
-      for (let w = 0; w < 5; w++) {
+      for (let w = 0; w < 6; w++) {
           calendarHtml += '<tr>'
   
           for (let d = 0; d < 7; d++) {
@@ -53,15 +54,12 @@
                   // 1行目で1日の曜日の前
                   let num = lastMonthendDayCount - startDay + d + 1
                   calendarHtml += '<td class="is-transparency">' + num + '</td>'
-              } else if (month == thismonth+1 && dayCount<day) {
+              } else if ((year <= thisyear && month<=thismonth ) || (year < thisyear) || (month == thismonth+1 && dayCount<today)){
                   calendarHtml += '<td class="is-disabled">' + dayCount + '</td>'
                   dayCount++
-              } else if (year <= thisyear && month<=thismonth){
-                  calendarHtml += '<td class="is-disabled">' + dayCount + '</td>'
-                  dayCount++
-              } else if (year < thisyear){
-                  calendarHtml += '<td class="is-disabled">' + dayCount + '</td>'
-                  dayCount++
+              } else if (year == thisyear && month == thismonth+1 && dayCount == today ){
+                  calendarHtml += '<td class="is-today">' + dayCount + '</td>'
+                  dayCount++    
               }else{
                   calendarHtml += '<td class="is-available" >' + dayCount + '</td>'
                   dayCount++
@@ -79,27 +77,6 @@
 
   const inputStudyDay = document.getElementById('studyDay-modalButton')
   inputStudyDay.value = setStudyDay()
-  
-  // 昨日以前とdisabled(前月と来月の日にち)以外の日にちDOMを得する
-  const validaDates = document.querySelectorAll('.is-available')
-  const td = document.querySelectorAll('td');
-  // 取得した日にちでループを回す
-  validaDates.forEach(td => {
-    // tdには日にちのDOM1つが入り、それがclickされた時の挙動設定する
-    td.addEventListener('click', (e) => {
-      // clickされたtdにselected-dateというclassを追加する
-      td.classList.add('is-selected')
-      // selected-dateというclassをもつtdを取得する
-      const selectedDate = document.querySelector('.is-selected')
-      // 学習日を更新する
-      inputStudyDay.value = setStudyDay(e.target.textContent)
-      // selected-dateというclassをもつtdがあれば、そのdomらselected-dateを取り除く
-      if (selectedDate) {
-        selectedDate.classList.remove('is-selected')
-      }
-    })
-  })
-  
   
   
   function moveCalendar(e) {
@@ -122,7 +99,58 @@
       showCalendar(year, month)
   }
   document.querySelector('#prev').addEventListener('click', moveCalendar)
+  document.querySelector('#prev').addEventListener('click', setSelectedDay)
   document.querySelector('#next').addEventListener('click', moveCalendar)
+  document.querySelector('#next').addEventListener('click', setSelectedDay)
+  
 
   showCalendar(year, month)
+
+  // 選択できる日にちのDOMを得する
+  function setSelectedDay() {
+    //うるう年の設定
+    // function isLeapYear(year){
+    //   t.forEach(date=>{
+    //     const dateNumber = date.innerHTML
+    //     if( ((year % 4 === 0 && year % 100 !== 0)&&(month+1===2)) || ((year % 400 === 0)&&(month+1==2))) {
+    //       t.forEach(date=>{
+    //         const dateNumber = date.innerHTML
+    //         if (dateNumber===30){
+    //           date.classList.add('is-transparency')
+    //         }
+    //       }
+    //     }
+    //   } 
+    //小の月の設定
+    const minMonth = [2,4,6,9,11]
+    const t = document.querySelectorAll('td')
+    t.forEach(date=>{
+      const dateNumber = date.innerHTML 
+      for (let i=0;i<minMonth.length;i++){
+        if ((month === minMonth[i]) && (dateNumber>30)){
+          date.classList.add('is-transparency')
+        }else if (dateNumber>31){
+          date.classList.add('is-transparency')
+        }
+      }
+    })
+    const getDate = document.querySelectorAll('.is-today,.is-disabled')
+    // 取得した日にちでループを回す
+    getDate.forEach(td => {
+      // tdには日にちのDOM1つが入り、それがclickされた時の挙動設定する
+        td.addEventListener('click', (e) => { 
+        // selected-dateというclassをもつtdを取得する
+        const selectedDate = document.querySelector('.is-selected')
+        // selected-dateというclassをもつtdがあれば、そのdomらselected-dateを取り除く
+        if (selectedDate) {
+          selectedDate.classList.remove('is-selected')
+        }  
+        // clickされたtdにselected-dateというclassを追加する
+        td.classList.add('is-selected')
+        // 学習日を更新する
+        inputStudyDay.value = setStudyDay(day=e.target.textContent,year,month-1)
+      })
+    })
+  }
+  setSelectedDay()
 }

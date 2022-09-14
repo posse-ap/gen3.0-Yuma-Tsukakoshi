@@ -450,6 +450,10 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
 }
+tr{
+  width: 30px;
+  height: 30px;
+}
 td {
   padding: 15px;
   text-align: center;
@@ -466,9 +470,13 @@ td.is-transparency{
 td.is-disabled {
   color: #ccc;
   font-weight: bold;
+  cursor: pointer;
+}
+.is-today{
+  cursor: pointer;
+  font-weight: bold;
 }
 .is-available {
-  cursor: pointer;
   font-weight: bold;
 }
 .is-selected{
