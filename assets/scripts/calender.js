@@ -12,14 +12,16 @@
   const config = {
       show: 1,
   }
-  
+  const changeYearMonth = document.getElementById('js-changeMonth')
+  changeYearMonth.innerHTML = thisyear + '年' + (thismonth+1) + '月'
+
   function showCalendar(year, month) {
       for (let i = 0; i < config.show; i++) {
           const calendarHtml = createCalendar(year, month)
           const sec = document.createElement('section')
           sec.innerHTML = calendarHtml
           document.querySelector('#calendar').appendChild(sec)
-  
+          changeYearMonth.innerHTML = year + '年' + month + '月'
           month++
           if (month > 12) {
               year++
@@ -96,36 +98,41 @@
               month = 1
           }
       }
+      if (e.target.id === 'prev-f') {
+        month--
+        if (month < 1) {
+            year--
+            month = 12
+        }
+      }
+      if (e.target.id === 'next-f') {
+          month++
+          if (month > 12) {
+              year++
+              month = 1
+          }
+      }
       showCalendar(year, month)
   }
   document.querySelector('#prev').addEventListener('click', moveCalendar)
-  document.querySelector('#prev').addEventListener('click', setSelectedDay)
   document.querySelector('#next').addEventListener('click', moveCalendar)
+  document.querySelector('#prev').addEventListener('click', setSelectedDay)
   document.querySelector('#next').addEventListener('click', setSelectedDay)
-  
+  document.querySelector('#prev-f').addEventListener('click', moveCalendar)
+  document.querySelector('#next-f').addEventListener('click', moveCalendar)
+  document.querySelector('#prev-f').addEventListener('click', setSelectedDay)
+  document.querySelector('#next-f').addEventListener('click', setSelectedDay)
 
   showCalendar(year, month)
 
   // 選択できる日にちのDOMを得する
   function setSelectedDay() {
-    //うるう年の設定
-    // function isLeapYear(year){
-    //   t.forEach(date=>{
-    //     const dateNumber = date.innerHTML
-    //     if( ((year % 4 === 0 && year % 100 !== 0)&&(month+1===2)) || ((year % 400 === 0)&&(month+1==2))) {
-    //       t.forEach(date=>{
-    //         const dateNumber = date.innerHTML
-    //         if (dateNumber===30){
-    //           date.classList.add('is-transparency')
-    //         }
-    //       }
-    //     }
-    //   } 
-    //小の月の設定
+
+    //小の月の設定&うるう年の設定
     const minMonth = [2,4,6,9,11]
     const t = document.querySelectorAll('td')
     t.forEach(date=>{
-      const dateNumber = date.innerHTML 
+      const dateNumber = date.innerHTML
       for (let i=0;i<minMonth.length;i++){
         if ((month === minMonth[i]) && (dateNumber>30)){
           date.classList.add('is-transparency')
@@ -133,19 +140,27 @@
           date.classList.add('is-transparency')
         }
       }
+      if((((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) && month === 2)){
+        if(dateNumber>29){
+          date.classList.add('is-transparency')
+        }
+      }else if (month === 2 ){
+        if(dateNumber>28){
+          date.classList.add('is-transparency')
+        }
+      }
     })
     const getDate = document.querySelectorAll('.is-today,.is-disabled')
     // 取得した日にちでループを回す
     getDate.forEach(td => {
-      // tdには日にちのDOM1つが入り、それがclickされた時の挙動設定する
         td.addEventListener('click', (e) => { 
-        // selected-dateというclassをもつtdを取得する
+        // is-selectedというclassをもつtdを取得する
         const selectedDate = document.querySelector('.is-selected')
-        // selected-dateというclassをもつtdがあれば、そのdomらselected-dateを取り除く
+        // is-selectedというclassをもつtdがあれば、is-selectedを取り除く
         if (selectedDate) {
           selectedDate.classList.remove('is-selected')
         }  
-        // clickされたtdにselected-dateというclassを追加する
+        // clickされたtdにis-selectedというclassを追加する
         td.classList.add('is-selected')
         // 学習日を更新する
         inputStudyDay.value = setStudyDay(day=e.target.textContent,year,month-1)

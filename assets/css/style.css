@@ -464,10 +464,10 @@ td {
   color: #6ba0f0;
   font-weight: bold;
 }
-td.is-transparency{
+.is-transparency{
   opacity: 0;
 }
-td.is-disabled {
+.is-disabled {
   color: #ccc;
   font-weight: bold;
   cursor: pointer;
@@ -496,7 +496,7 @@ td.is-disabled {
   cursor: pointer;
   box-shadow: 4px 5px 5px 0 #9bdceb;
   border: none;
-  margin: 30px auto 0;
+  margin: 0px auto 0;
   width: 100px;
 }
 .arrow.left.head{
