@@ -450,15 +450,13 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
 }
-tr{
+td {
+  padding: 12px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
   width: 30px;
   height: 30px;
-}
-td {
-  padding: 15px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
 }
 .date{
   color: #6ba0f0;
@@ -482,8 +480,8 @@ td {
 .is-selected{
   background-color: #0074BB;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   color: #fff;
   cursor: pointer;
 }
@@ -517,6 +515,7 @@ td {
   margin-top: 3.25%;
   z-index: 2;
 }
+.day-num{}
 
 
 /* body */
