@@ -313,7 +313,8 @@ modal-contents
 .study-contents{
   display: grid;
   gap: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 35px;
+  margin-top: 20px;
 }
 .contents-list{
   display: flex;
