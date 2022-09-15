@@ -1,18 +1,53 @@
 'use strict';
 
 {
+  //投稿後の初期化
+  const checkbox = document.querySelectorAll(".input-checkbox");
+  const InputTexts = document.querySelectorAll(".input-text");
+
+  const unChecked = (checkbox) => {
+    checkbox.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  }; 
+
+  const Textclear = (InputTexts) => {
+    InputTexts.forEach((text) => {
+      text.value = "";
+    });
+  }; 
+
+  //ツイート機能
+  const tweetArea = document.getElementById("tweet-area");
+  const shareTweet = document.querySelector(".js-twitter");
+
+  const tweet = () => {
+    if (shareTweet.checked) {
+      const tweetText = `${tweetArea.value}`;
+      window.open(
+        `http://twitter.com/intent/tweet?&text=${tweetText}`
+      );
+    }
+  }; 
+  
+  //modal遷移
   let $Timeloading;
   $('#record-modalButton').on('click',function(){
     $('#modal-top').css("display","none");
+    tweet();
     $('#loading').css("display","block");
     $Timeloading = setTimeout(function(){
         $('#loading').css("display","none");
         $('#access-record').css("display","block");
+        unChecked(checkbox);
+        Textclear(InputTexts);
     },3000);
   });
 
   $('.js-closeModal').on('click',function(){
     clearTimeout($Timeloading);
+    unChecked(checkbox);
+    Textclear(InputTexts);
     $('#modal-top').css("display","block");
     $('#loading').css("display","none");
     $('#access-record').css("display","none");
@@ -27,7 +62,7 @@
         $('#show-calendar').css("display","block");
         $('.js-closeModal').css("display","none");
         $('.modal-back-button').css("display","block");
-    },0);
+    },3000);
   })
 
   $('.js-closeModal').on('click',function(){

@@ -55,7 +55,7 @@
               if (w == 0 && d < startDay) {
                   // 1行目で1日の曜日の前
                   let num = lastMonthendDayCount - startDay + d + 1
-                  calendarHtml += '<td class="is-transparency"><span class="day-num">' + num + '</span></td>'
+                  calendarHtml += '<td class="is-transparency">' + num + '</td>'
               } else if ((year <= thisyear && month<=thismonth ) || (year < thisyear) || (month == thismonth+1 && dayCount<today)){
                   calendarHtml += '<td class="is-disabled">' + dayCount + '</td>'
                   dayCount++

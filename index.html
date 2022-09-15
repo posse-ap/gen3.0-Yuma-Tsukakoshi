@@ -36,12 +36,12 @@
             <div class="modal-upper">
               <div class="study-day">
                 <h2 class="modal-title">学習日</h2>
-                <input class="study-day-box" type="text" id="studyDay-modalButton" name="study-day">
+                <input class="study-day-box input-text" type="text" id="studyDay-modalButton" name="study-day">
                 </input>
               </div>
               <div class="study-time">
                 <h2 class="modal-title">学習時間</h2>
-                <input class="study-time-box" type="text" id="studyHour" 
+                <input class="study-time-box input-text" type="text" id="studyHour" 
                 name="study-hour"
                 size="34">
                 </input>
@@ -73,9 +73,10 @@
               </div>
               <div class="twitter-section">
                 <h2 class="modal-title" >Twitter用コメント</h2>
-                <textarea class="twitter-comment-box" name="twitter" id="twitter" cols="37" rows="13"></textarea>
+                <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area" cols="37" rows="13"></textarea>
+                <script src="https://platform.twitter.com/widgets.js" defer></script>
                 <div class="sharing-wrapper">
-                  <input type="checkbox" id="ch12" class="input-checkbox" name="twitter" value="twitter"><label for="ch12" class="share-text">Twitterにシェアする</label>
+                  <input type="checkbox" id="ch12" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="ch12" class="share-text">Twitterにシェアする</label>
                 </div>
               </div>
             </div>
