@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="./assets/scripts/jquery-3.6.1.min.js" defer></script>
   <script src="https://unpkg.com/apexcharts/dist/apexcharts.min.js" defer></script>
+  <script src="./assets/scripts/count.js" defer></script>
   <script src="./assets/scripts/bar-charts.js" defer></script>
   <script src="./assets/scripts/donut-charts-1.js" defer></script>
   <script src="./assets/scripts/donut-charts-2.js" defer></script>
@@ -73,7 +74,7 @@
               </div>
               <div class="twitter-section">
                 <h2 class="modal-title" >Twitter用コメント</h2>
-                <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area" cols="37" rows="13"></textarea>
+                <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area" onkeyup="viewStrLen();" cols="37" rows="13"></textarea>
                 <script src="https://platform.twitter.com/widgets.js" defer></script>
                 <div class="sharing-wrapper">
                   <input type="checkbox" id="ch12" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="ch12" class="share-text">Twitterにシェアする</label>

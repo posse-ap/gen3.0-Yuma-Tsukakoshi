@@ -1,9 +1,11 @@
 'use strict';
 
 {
-  //投稿後の初期化
+  //投稿後の初期化  //ツイート機能
   const checkbox = document.querySelectorAll(".input-checkbox");
   const InputTexts = document.querySelectorAll(".input-text");
+  const tweetArea = document.getElementById("tweet-area");
+  const shareTweet = document.querySelector(".js-twitter");
 
   const unChecked = (checkbox) => {
     checkbox.forEach((checkbox) => {
@@ -16,10 +18,6 @@
       text.value = "";
     });
   }; 
-
-  //ツイート機能
-  const tweetArea = document.getElementById("tweet-area");
-  const shareTweet = document.querySelector(".js-twitter");
 
   const tweet = () => {
     if (shareTweet.checked) {
