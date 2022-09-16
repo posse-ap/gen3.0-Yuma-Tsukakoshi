@@ -213,7 +213,7 @@ modal
 .modal:before {
   content: "";
   display: block;
-  height: 100vh;
+  height: 150vh;
   position: absolute;
   background-color: rgba(0, 0, 0, .7);
   inset: 0;
@@ -235,6 +235,7 @@ modal
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  overflow-y: scroll;
 }
 .modal-close-button{
   border-radius: 50%;
@@ -639,6 +640,14 @@ footer-label
 responsive
 */
 @media screen and (max-width:480px){ 
+  /* main-section */
+  .header-logo{
+    padding: 0px 10px;
+  }
+  .header-logo > img{
+    width: 50%;
+  }
+
   .header-button.js-openModal{
     display: none;
   }
@@ -652,23 +661,26 @@ responsive
   .right-side-wrapper{
     gap: 16px;
     margin: 8px 20px ;
-    height: 550px;
+    height: 470px;
   }
-
   .hour-list{
     gap: 16px;
-    margin: 16px 20px;
+    margin: 0px 20px 16px;
+  }
+  .hour-items-box{
+    padding: 25px 0px;
   }
   .hour-time{
-    font-size: 1.8rem;
+    font-size: 30px;
   }
   .border{
     opacity: 0.3;
-    margin: 20px 20px 6px; 
+    margin: 40px 20px 6px; 
     border-bottom: 2px solid #6ba0f0;
   }
   #bar-charts{
     margin: 8px 20px;
+    /* width: 80vw; */
   }
   .circle-graph{
     display: flex;
@@ -680,7 +692,14 @@ responsive
     width: 90%;
     padding: 20px;
   }
-  
+  .study-language-title{
+    padding: 30px 0px 0px 15px;
+    font-size: 14px;
+  }
+  .study-contents-title{
+    padding: 30px 0px 0px 15px;
+    font-size: 14px;
+  }
   /* modal-section */
   .modal-both{
     display: block;
@@ -694,17 +713,20 @@ responsive
   }
 
   .modal-content{
-    height: 95vh;
-    margin-top: 50vh; 
-    width: 100vw;
+    height: 80vh;
+    margin-top: 45vh; 
+    width: 100%;
+    border-radius: 30px 30px 0 0;
   }
   .study-day-box{
-    width: 80vw;
+    width: 88%;
     height: 0vh;
+    border-radius: 10px;
   }
   .study-time-box{
-    width: 80vw;
+    width: 88%;
     height: 0vh;
+    border-radius: 10px;
   }
   .study-contents{
     margin-top: 2vh;
@@ -714,8 +736,9 @@ responsive
     margin-top: 8px;
   }
   .twitter-comment-box{
-    width: 82vw;
+    width: 90%;
     height: 10vh;
+    border-radius: 15px;
   }
   .label{
     font-size: 16px;
@@ -734,12 +757,12 @@ responsive
     margin-top: 25%;
   }
   .arrow.left.head{
-    margin-left: 33%;
-    margin-top: 6.25%;
+    margin-left: 30%;
+    margin-top: 8.25%;
   }  
   .arrow.right.head{
-    margin-left: 63%;
-    margin-top: 6.25%;
+    margin-left: 65%;
+    margin-top: 8.25%;
   }
   /* ↑ modal-calendar ↑ */
 }

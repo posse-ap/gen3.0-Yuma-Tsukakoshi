@@ -90,12 +90,12 @@
               labels: {
                   offsetY: -7,
                   style: {
-                      fontSize: '8px',
+                      fontSize: '7.5px',
                   }
               }
           },
           chart: {
-              height: 200
+              height: 200,
           }
       },
       }
