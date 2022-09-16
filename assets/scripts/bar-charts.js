@@ -13,9 +13,6 @@
       toolbar:{
         show:false
       },
-      // animations:{
-      //   enabled:false
-      // }
     },
     plotOptions: {
       bar: {
@@ -84,7 +81,26 @@
         gradientToColors: ['#3BCFFF'], 
       }
     },
-  };
+
+    responsive: [
+      {
+      breakpoint: 480,
+      options: {
+          xaxis: {
+              labels: {
+                  offsetY: -7,
+                  style: {
+                      fontSize: '8px',
+                  }
+              }
+          },
+          chart: {
+              height: 200
+          }
+      },
+      }
+    ]
+  };  
 
   var chart = new ApexCharts(document.querySelector("#bar-charts"), options);
   chart.render();

@@ -37,7 +37,7 @@ input[type=checkbox]:checked{
 input[type=checkbox] + label {
   box-sizing: border-box;
   cursor: pointer;
-  padding: 10px 10px 5px 30px;
+  padding: 8px 10px 5px 28px;
   position: relative;
   width: auto;
 }
@@ -200,12 +200,11 @@ input[type=checkbox]:checked + label::after {
   font-size: 18px;
   padding: 15px 120px;
   text-align: center;
-  margin: 0 auto 10px auto;
+  margin: 0px auto;
 }
 /*
 modal 
 */
-/* .overlay{} */
 .modal{
   display: none;
   position: absolute; 
@@ -282,19 +281,18 @@ modal-contents
   font-weight: bold;
   font-size: 14px;
 }
-.modal-upper{
+.modal-both{
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  gap: 40px;
-  margin: 40px 56px 20px 56px;
 }
-.modal-lower{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
+.modal-right{
   gap: 40px;
-  margin: 10px 56px;
+  margin: 40px 56px 20px 10px;
 }
-/* .study-day{} */
+.modal-left{
+  gap: 40px;
+  margin: 40px 10px 20px 56px;
+}
 .study-day-box{
   background-color: #f2f3f7;
   border-radius: 16px;
@@ -303,7 +301,6 @@ modal-contents
   width: 325px;
   cursor: pointer;
 }
-/* .study-time{} */
 .study-time-box{
   background-color: #f2f3f7;
   margin-top: 5px;
@@ -334,17 +331,17 @@ modal-contents
   padding: 0;
   margin: 0;
 }
-/* .twitter-section{} */
+.twitter-section{
+  margin-top: 20px;
+}
 .twitter-comment-box{
   background-color: #f2f3f7;
   margin-top: 5px;
-  padding: 15px 15px;
+  padding: 10px 15px;
   border-radius: 16px;
   border: none;
   resize: none;
 }
-/* .shere-text{} */
-
 .label{
   background-color: #f2f3f7;
   border-radius: 30px;
@@ -520,22 +517,16 @@ td {
 }
 .both-wrapper{
   position: relative;
-  width: 1100px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap: 20px;
 }
 
-@media screen and (max-width:480px) {
-  .both-wrapper{
-    display: block;
-  }
-}
-
 .left-side-wrapper{
   display: grid;
-  gap: 20px;
+  /* gap: 20px; */
 }
 .right-side-wrapper{
   gap: 20px;
@@ -543,17 +534,17 @@ td {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.border{
+  opacity: 0;
+}
 /* 
 hour-time
 */
-/* .hour-section{} */
 .hour-list{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   height: 100px;
-  padding: 0;
-  margin: 0;
   line-height: 1.5;
 }
 .hour-items-box{
@@ -640,4 +631,55 @@ footer-label
   font-weight: bold;
   margin: 40px 0;
 }
-/* .footer-label{} */
+.header-button.footer{
+  display: none;
+}
+
+/* 
+responsive
+*/
+@media screen and (max-width:480px){ 
+  .header-button.js-openModal{
+    display: none;
+  }
+
+  .both-wrapper{
+    display: block;
+  }
+  .right-side-wrapper{
+    gap: 16px;
+    margin: 8px 20px ;
+    height: 550px;
+  }
+
+  .hour-list{
+    gap: 16px;
+    margin: 16px 20px;
+  }
+  .hour-time{
+    font-size: 1.8rem;
+  }
+  .border{
+    opacity: 0.3;
+    margin: 20px 20px 6px; 
+    border-bottom: 2px solid #6ba0f0;
+  }
+  #bar-charts{
+    margin: 8px 20px;
+  }
+  .circle-graph{
+    display: flex;
+    justify-content: center;
+  }
+  .header-button.footer{
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 90%;
+    padding: 20px;
+  }
+  
+  /* modal-section */
+  .modal-both{
+    display: block;
+  }
+}
