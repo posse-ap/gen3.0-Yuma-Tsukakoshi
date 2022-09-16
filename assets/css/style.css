@@ -70,7 +70,7 @@ input[type=checkbox]:checked + .label {
   box-sizing: border-box;
   background-color: #d3e4f8;
   cursor: pointer;
-  padding: 10px 10px 5px 30px;
+  padding: 8px 10px 5px 28px;
   position: relative;
   width: auto;
 }
@@ -642,6 +642,9 @@ responsive
   .header-button.js-openModal{
     display: none;
   }
+  .header-button.bottom{
+    padding: 15px 35vw;
+  }
 
   .both-wrapper{
     display: block;
@@ -682,4 +685,61 @@ responsive
   .modal-both{
     display: block;
   }
+  .modal-left{
+    margin: 6vh 5vw 2vh;
+  }
+
+  .modal-right{
+    margin: 10px 5vw;
+  }
+
+  .modal-content{
+    height: 95vh;
+    margin-top: 50vh; 
+    width: 100vw;
+  }
+  .study-day-box{
+    width: 80vw;
+    height: 0vh;
+  }
+  .study-time-box{
+    width: 80vw;
+    height: 0vh;
+  }
+  .study-contents{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+  .twitter-section{
+    margin-top: 8px;
+  }
+  .twitter-comment-box{
+    width: 82vw;
+    height: 10vh;
+  }
+  .label{
+    font-size: 16px;
+  }
+  /* ↑ modal-top ↑ */
+  .access-record{
+    margin-top: 55%;
+  }
+  /* ↑ modal-record ↑ */
+  .circle{
+    margin-top: 60%;
+    left: 40vw;
+  }
+  /* ↑ modal-loaging ↑ */
+  #calendar{
+    margin-top: 25%;
+  }
+  .arrow.left.head{
+    margin-left: 33%;
+    margin-top: 6.25%;
+  }  
+  .arrow.right.head{
+    margin-left: 63%;
+    margin-top: 6.25%;
+  }
+  /* ↑ modal-calendar ↑ */
 }
