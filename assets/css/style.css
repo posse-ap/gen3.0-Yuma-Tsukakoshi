@@ -235,7 +235,6 @@ modal
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  overflow-y: scroll;
 }
 .modal-close-button{
   border-radius: 50%;
@@ -653,6 +652,7 @@ responsive
   }
   .header-button.bottom{
     padding: 15px 35vw;
+    margin:0px auto 20px auto ;
   }
 
   .both-wrapper{
@@ -713,10 +713,12 @@ responsive
   }
 
   .modal-content{
-    height: 80vh;
-    margin-top: 45vh; 
+    height: 100vh;
+    margin-top: 50vh; 
     width: 100%;
     border-radius: 30px 30px 0 0;
+    max-height: calc(100vh - 4.0em);
+    overflow-y: scroll;
   }
   .study-day-box{
     width: 88%;
@@ -745,12 +747,12 @@ responsive
   }
   /* ↑ modal-top ↑ */
   .access-record{
-    margin-top: 55%;
+    margin-top: 63%;
   }
   /* ↑ modal-record ↑ */
   .circle{
-    margin-top: 60%;
-    left: 40vw;
+    margin-top: 36vh;
+    left: 38vw;
   }
   /* ↑ modal-loaging ↑ */
   #calendar{
