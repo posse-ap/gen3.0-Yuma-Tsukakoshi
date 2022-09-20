@@ -4,7 +4,6 @@
   var options = {
     series: [40,20, 40],
     chart: {
-    width: 300,
     height: 500,
     type: 'donut',
   },
@@ -44,12 +43,23 @@
   responsive: [{
     breakpoint: 480,
     options: {
-      chart: {
-        width: 200
+      plotOptions: {
+        pie: {
+        offsetY: 0,
+        }
       },
-      legend: {
-        position: 'bottom'
-      }
+      title: {
+        style: {
+          fontSize: '13px',
+          color: '#263238'
+        }
+      },
+    chart: {
+    },
+    legend: {
+        position: 'bottom',
+        fontSize: '8px',
+    }
     }
   }]
   };

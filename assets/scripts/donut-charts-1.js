@@ -4,7 +4,6 @@
   var options = {
     series: [30,20,10,5,5,20,20,10],
     chart: {
-    width: 300,
     height: 500,
     type: 'donut',
   },
@@ -31,7 +30,7 @@
 
   dataLabels: {
     style: {
-      fontSize: '15px',
+      fontSize: '0.8rem',
     }
   },
 
@@ -46,15 +45,27 @@
     horizontalAlign: 'left', 
     fontSize: '15px',
   },
+
   responsive: [{
     breakpoint: 480,
     options: {
-      chart: {
-        width: 200
+      plotOptions: {
+        pie: {
+        offsetY: 0
+        }
       },
-      legend: {
-        position: 'bottom'
-      }
+      title: {
+        style: {
+          fontSize: '13px',
+          color:  '#263238'
+        }
+      },
+    chart: {
+    },
+    legend: {
+        position: 'bottom',
+        fontSize: '8px',
+    }
     }
   }]
   };

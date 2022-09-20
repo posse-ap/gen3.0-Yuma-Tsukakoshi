@@ -28,3 +28,9 @@
   font-size: 18px;
   line-height: 1.8;
 }
+
+@media screen and (max-width:480px) {
+  .access-error{
+    margin-top: 55%;
+  }
+}
