@@ -152,16 +152,17 @@
     })
     const getDate = document.querySelectorAll('.is-today,.is-disabled')
     // 取得した日にちでループを回す
-    getDate.forEach(td => {
-        td.addEventListener('click', (e) => { 
-        // is-selectedというclassをもつtdを取得する
+    getDate.forEach(Selectable => {
+        console.log(1)
+        Selectable.addEventListener('click', (e) => { 
+        // is-selectedというclassをもつSelectableを取得する
         const selectedDate = document.querySelector('.is-selected')
-        // is-selectedというclassをもつtdがあれば、is-selectedを取り除く
+        // is-selectedというclassをもつSelectableがあれば、is-selectedを取り除く
         if (selectedDate) {
           selectedDate.classList.remove('is-selected')
         }  
-        // clickされたtdにis-selectedというclassを追加する
-        td.classList.add('is-selected')
+        // clickされたSelectableにis-selectedというclassを追加する
+        Selectable.classList.add('is-selected')
         // 学習日を更新する
         inputStudyDay.value = setStudyDay(day=e.target.textContent,year,month-1)
       })
