@@ -32,10 +32,10 @@
   let $Timeloading;
   $('#record-modalButton').on('click',function(){
     $('#modal-top').css("display","none");
-    tweet();
     $('#loading').css("display","block");
     $Timeloading = setTimeout(function(){
         $('#loading').css("display","none");
+        tweet();
         $('#access-record').css("display","block");
         unChecked(checkbox);
         Textclear(InputTexts);
