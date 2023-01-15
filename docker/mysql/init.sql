@@ -55,6 +55,8 @@ CREATE TABLE study_hours(
   -- CURRENT_TIMESTAMP :現在の日付と時刻を取得  TIMESTAMP:insert時 / ON UPDATE CURRENT_TIMESTAMP:update時
 )CHARSET=utf8;
 
+INSERT INTO study_hours SET date='2022-01-01',hours='2';
+
 -- 学習言語勉強記録テーブル
 DROP TABLE IF EXISTS record_languages;
 
@@ -65,6 +67,8 @@ CREATE TABLE record_languages(
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "作成日時",
   updataed_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新日時"
 )CHARSET=utf8;
+
+INSERT INTO record_languages SET language_id = 1, hours=1.5;
 
 -- 学習コンテンツ勉強記録テーブル
 DROP TABLE IF EXISTS record_contents;
@@ -77,6 +81,7 @@ CREATE TABLE record_contents(
   updataed_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新日時"
 )CHARSET=utf8;
 
+INSERT INTO record_contents SET content_id = 1, hours=1.5;
 
 -- 学習言語テーブル
 DROP TABLE IF EXISTS languages;
@@ -87,6 +92,14 @@ CREATE TABLE languages (
   color VARCHAR(10) NOT NULL COMMENT "配色指定" 
 )CHARSET=utf8;
 
+INSERT INTO languages SET language='HTML', color='#0042e5';
+INSERT INTO languages SET language='CSS', color='#0070B9';
+INSERT INTO languages SET language='JavaScript', color='#01BDDB';
+INSERT INTO languages SET language='PHP', color='#02CDFA';
+INSERT INTO languages SET language='Laravel', color='#B29DEE';
+INSERT INTO languages SET language='SQL', color='#6C43E5';
+INSERT INTO languages SET language='SHELL', color='#460AE8';
+INSERT INTO languages SET language='情報システム基礎知識(その他)', color='#2C00B9';
 
 -- 学習コンテンツテーブル
 DROP TABLE IF EXISTS contents;
@@ -96,3 +109,7 @@ CREATE TABLE contents (
   content VARCHAR(255) NOT NULL COMMENT "学習コンテンツ",
   color VARCHAR(10) NOT NULL COMMENT "配色指定" 
 )CHARSET=utf8;
+
+INSERT INTO contents SET content='N予備校', color='#0042e5';
+INSERT INTO contents SET content='ドットインストール', color='#0070B9';
+INSERT INTO contents SET content='POSSE課題', color='#01BDDB';
