@@ -1,3 +1,25 @@
+<?php
+
+require_once(dirname(__FILE__) . '/dbconnect.php');
+
+$content_sql = 'SELECT * FROM contents';
+$contents = $pdo->query($content_sql)->fetchAll(PDO::FETCH_ASSOC);
+
+$language_sql = 'SELECT * FROM languages';
+$languages = $pdo->query($language_sql)->fetchAll(PDO::FETCH_ASSOC);
+
+$hour_sql = 'SELECT * FROM study_hours';
+$hours = $pdo->query($hour_sql)->fetchAll(PDO::FETCH_ASSOC);
+
+// $content_record_sql = 'SELECT * FROM record_contents';
+// $content_record = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+// $language_record_sql = 'SELECT * FROM record_languages';
+// $language_record = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -45,22 +67,17 @@
                   <div class="study-contents">
                     <h2 class="modal-title">学習コンテンツ(複数選択可)</h2>
                     <div class="contents-list">
-                      <input type="checkbox" id="check1" class="input-checkbox" name="content" value="N予備校"><label for="check1" class="label">N予備校</label>
-                      <input type="checkbox" id="check2" class="input-checkbox" name="content" value="ドットインストール"><label for="check2" class="label">ドットインストール</label>
-                      <input type="checkbox" id="check3" class="input-checkbox" name="content" value="POSSE課題"><label for="check3" class="label">POSSE課題</label>
+                      <?php foreach($contents as $key => $content){ ?>
+                        <input type="checkbox" id="check<?=$key+1 ?>" class="input-checkbox" name="content" value="<?=$content["content"]?>"><label for="check<?=$key+1 ?>" class="label"><?=$content["content"]?></label>
+                      <?php } ?>
                     </div>
                   </div>
                   <div class="study-language">
                     <h2 class="modal-title">学習言語(複数選択可)</h2>
                     <div class="language-list">
-                      <input type="checkbox" id="check4" class="input-checkbox" name="language" value="HTML"><label for="check4" class="label">HTML</label>
-                      <input type="checkbox" id="check5" class="input-checkbox" name="language" value="CSS"><label for="check5" class="label">CSS</label>
-                      <input type="checkbox" id="check6" class="input-checkbox" name="language" value="JavaScript"><label for="check6" class="label">JavasScript</label>
-                      <input type="checkbox" id="check7" class="input-checkbox" name="language" value="PHP"><label for="check7" class="label">PHP</label>
-                      <input type="checkbox" id="check8" class="input-checkbox" name="language" value="Laravel"><label for="check8" class="label">Laravel</label>
-                      <input type="checkbox" id="check9" class="input-checkbox" name="language" value="SQL"><label for="check9" class="label">SQL</label>
-                      <input type="checkbox" id="check10" class="input-checkbox" name="language" value="SHELL"><label for="check10" class="label">SHELL</label>
-                      <input type="checkbox" id="check11" class="input-checkbox" name="language" value="others"><label for="check11" class="label">情報システム基礎知識(その他)</label>
+                      <?php foreach($languages as $key => $language){ ?>
+                        <input type="checkbox" id="check<?=$key + 1 + count($contents) ?>" class="input-checkbox" name="language" value="<?=$language["language"]?>"><label for="check<?=$key + 1 + count($contents) ?>" class="label"><?=$language["language"]?></label>
+                      <?php } ?>
                     </div>
                   </div>
                 </div>
@@ -68,17 +85,14 @@
               <div class="modal-right">
                 <div class="study-time">
                   <h2 class="modal-title">学習時間</h2>
-                  <input class="study-time-box input-text" type="text" id="studyHour" 
-                  name="study-hour"
-                  size="34">
-                  </input>
+                  <input class="study-time-box input-text" type="text" id="studyHour"   name="study-hour" size="34">
                 </div>
                 <div class="twitter-section">
                   <h2 class="modal-title" >Twitter用コメント</h2>
-                  <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area" onkeyup="viewStrLen();" cols="37" rows="13"></textarea>
+                  <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area"  onkeyup="viewStrLen();"cols="37" rows="13"></textarea>
                   <script src="https://platform.twitter.com/widgets.js" defer></script>
                   <div class="sharing-wrapper">
-                    <input type="checkbox" id="check12" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="check12" class="share-text">Twitterにシェアする</label>
+                    <input type="checkbox" id="check12" class="input-checkbox js-twitter"   name="twitter" value="twitter"><label for="check<?=count($contents) + count($languages) + 1 ?>" class="share-text">Twitterにシェアする</label>
                   </div>
                 </div>
               </div>
@@ -121,17 +135,17 @@
           <ul class="hour-list">
             <li class="hour-items-box">
               <p class="hour-title">Today</p>
-              <span class="hour-time">3</span>
+              <span class="hour-time"><?=3 ?></span>
               <span class="hour-text">hour</span>
             </li>
             <li class="hour-items-box">
               <p class="hour-title">Month</p>
-              <span class="hour-time">120</span>
+              <span class="hour-time"><?=120 ?></span>
               <span class="hour-text">hour</span>
             </li>
             <li class="hour-items-box">
               <p class="hour-title">Total</p>
-              <span class="hour-time">1348</span>
+              <span class="hour-time"><?=1348 ?></span>
               <span class="hour-text">hour</span>
             </li>
           </ul>
