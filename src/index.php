@@ -11,6 +11,7 @@ $languages = $pdo->query($language_sql)->fetchAll(PDO::FETCH_ASSOC);
 $hour_sql = 'SELECT * FROM study_hours';
 $hours = $pdo->query($hour_sql)->fetchAll(PDO::FETCH_ASSOC);
 
+
 // $content_record_sql = 'SELECT * FROM record_contents';
 // $content_record = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
@@ -92,7 +93,7 @@ $hours = $pdo->query($hour_sql)->fetchAll(PDO::FETCH_ASSOC);
                   <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area"  onkeyup="viewStrLen();"cols="37" rows="13"></textarea>
                   <script src="https://platform.twitter.com/widgets.js" defer></script>
                   <div class="sharing-wrapper">
-                    <input type="checkbox" id="check12" class="input-checkbox js-twitter"   name="twitter" value="twitter"><label for="check<?=count($contents) + count($languages) + 1 ?>" class="share-text">Twitterにシェアする</label>
+                    <input type="checkbox" id="check<?=count($contents) + count($languages) + 1 ?>" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="check<?=count($contents) + count($languages) + 1 ?>" class="share-text">Twitterにシェアする</label>
                   </div>
                 </div>
               </div>
