@@ -2,24 +2,6 @@ DROP DATABASE IF EXISTS posse;
 CREATE DATABASE posse;
 USE posse;
 
--- DROP TABLE IF EXISTS questions;
--- CREATE TABLE questions (
---   id INT AUTO_INCREMENT PRIMARY KEY,
---   content VARCHAR(255),
---   image VARCHAR(255),
---   supplement VARCHAR(255)
--- ) CHARSET=utf8;
-
--- DROP TABLE IF EXISTS choices;
--- CREATE TABLE choices (
---   id INT AUTO_INCREMENT PRIMARY KEY,
---   question_id INT,
---   name VARCHAR(255),
---   valid boolean,
---   FOREIGN KEY (question_id) REFERENCES questions(id)
--- ) CHARSET=utf8;
-
-
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -55,7 +37,28 @@ CREATE TABLE study_hours(
   -- CURRENT_TIMESTAMP :現在の日付と時刻を取得  TIMESTAMP:insert時 / ON UPDATE CURRENT_TIMESTAMP:update時
 )CHARSET=utf8;
 
-INSERT INTO study_hours SET date='2022-01-01',hours='2';
+INSERT INTO study_hours(id,date,hours) VALUES
+(1,'2022-01-01','2'), 
+(2,'2022-01-03','2.5'), 
+(3,'2022-01-06','1.5'), 
+(4,'2022-01-08','4'), 
+(5,'2022-01-12','4.5'), 
+(6,'2022-01-13','2'), 
+(7,'2022-01-14','1.5'), 
+(8,'2022-01-15','2'), 
+(9,'2022-01-17','2.5'), 
+(10,'2022-01-17','3.5'), 
+(11,'2022-01-19','1.5'), 
+(12,'2022-01-19','2'), 
+(13,'2022-01-19','1'), 
+(14,'2022-01-21','2.5'), 
+(15,'2022-01-24','3'), 
+(16,'2022-01-25','1.5'), 
+(17,'2022-01-25','0.5'), 
+(18,'2022-01-25','3'), 
+(19,'2022-01-27','1.5'), 
+(20,'2022-01-29','2'); 
+
 
 -- 学習言語勉強記録テーブル
 DROP TABLE IF EXISTS record_languages;
@@ -68,7 +71,27 @@ CREATE TABLE record_languages(
   updataed_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新日時"
 )CHARSET=utf8;
 
-INSERT INTO record_languages SET language_id = 1, hours=1.5;
+INSERT INTO record_languages(id, language_id, hours) VALUES 
+(1,1,1.5),
+(2,3,2.5),
+(3,1,1.5),
+(4,2,0.5),
+(5,1,1.5),
+(6,3,1.0),
+(7,3,2.5),
+(8,3,1.0),
+(9,3,1.5),
+(10,2,0.5),
+(11,1,1.0),
+(12,3,1.5),
+(13,3,2.5),
+(14,1,1.5),
+(15,2,1.5),
+(16,2,1.0),
+(17,3,4.5),
+(18,1,1.5),
+(19,3,4.0),
+(20,1,1.5);
 
 -- 学習コンテンツ勉強記録テーブル
 DROP TABLE IF EXISTS record_contents;
@@ -81,7 +104,27 @@ CREATE TABLE record_contents(
   updataed_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新日時"
 )CHARSET=utf8;
 
-INSERT INTO record_contents SET content_id = 1, hours=1.5;
+INSERT INTO record_contents(id, content_id, hours) VALUES 
+(1,1,1.5),
+(2,3,2.5),
+(3,1,1.5),
+(4,2,0.5),
+(5,6,1.5),
+(6,6,1.0),
+(7,4,2.5),
+(8,4,1.0),
+(9,3,1.5),
+(10,2,0.5),
+(11,6,1.0),
+(12,6,1.5),
+(13,3,2.5),
+(14,2,1.5),
+(15,3,1.5),
+(16,2,1.0),
+(17,4,4.5),
+(18,6,1.5),
+(19,5,4.0),
+(20,1,1.5);
 
 -- 学習言語テーブル
 DROP TABLE IF EXISTS languages;
@@ -92,14 +135,15 @@ CREATE TABLE languages (
   color VARCHAR(10) NOT NULL COMMENT "配色指定" 
 )CHARSET=utf8;
 
-INSERT INTO languages SET language='HTML', color='#0042e5';
-INSERT INTO languages SET language='CSS', color='#0070B9';
-INSERT INTO languages SET language='JavaScript', color='#01BDDB';
-INSERT INTO languages SET language='PHP', color='#02CDFA';
-INSERT INTO languages SET language='Laravel', color='#B29DEE';
-INSERT INTO languages SET language='SQL', color='#6C43E5';
-INSERT INTO languages SET language='SHELL', color='#460AE8';
-INSERT INTO languages SET language='情報システム基礎知識(その他)', color='#2C00B9';
+INSERT INTO languages VALUES
+(1,'HTML','#0042e5'),
+(2,'CSS','#0070B9'),
+(3,'JavaScript','#01BDDB'),
+(4,'PHP','#02CDFA'),
+(5,'Laravel','#B29DEE'),
+(6,'SQL','#6C43E5'),
+(7,'SHELL','#460AE8'),
+(8,'情報システム基礎知識(その他)','#2C00B9');
 
 -- 学習コンテンツテーブル
 DROP TABLE IF EXISTS contents;
@@ -110,6 +154,7 @@ CREATE TABLE contents (
   color VARCHAR(10) NOT NULL COMMENT "配色指定" 
 )CHARSET=utf8;
 
-INSERT INTO contents SET content='N予備校', color='#0042e5';
-INSERT INTO contents SET content='ドットインストール', color='#0070B9';
-INSERT INTO contents SET content='POSSE課題', color='#01BDDB';
+INSERT INTO contents VALUES
+(1,'N予備校','#0042e5'),
+(2,'ドットインストール','#0070B9'),
+(3,'POSSE課題','#01BDDB');
