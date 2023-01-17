@@ -153,7 +153,6 @@
     const getDate = document.querySelectorAll('.is-today,.is-disabled')
     // 取得した日にちでループを回す
     getDate.forEach(Selectable => {
-        console.log(1)
         Selectable.addEventListener('click', (e) => { 
         // is-selectedというclassをもつSelectableを取得する
         const selectedDate = document.querySelector('.is-selected')

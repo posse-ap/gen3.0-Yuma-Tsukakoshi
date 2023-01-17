@@ -1,15 +1,13 @@
 <?php
 
 require_once(dirname(__FILE__) . '/dbconnect.php');
+require_once(dirname(__FILE__) . '/calc_hour.php');
 
 $content_sql = 'SELECT * FROM contents';
 $contents = $pdo->query($content_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 $language_sql = 'SELECT * FROM languages';
 $languages = $pdo->query($language_sql)->fetchAll(PDO::FETCH_ASSOC);
-
-$hour_sql = 'SELECT * FROM study_hours';
-$hours = $pdo->query($hour_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 
 // $content_record_sql = 'SELECT * FROM record_contents';
@@ -86,7 +84,7 @@ $hours = $pdo->query($hour_sql)->fetchAll(PDO::FETCH_ASSOC);
               <div class="modal-right">
                 <div class="study-time">
                   <h2 class="modal-title">学習時間</h2>
-                  <input class="study-time-box input-text" type="text" id="studyHour"   name="study-hour" size="34">
+                  <input class="study-time-box input-text" type="text" id="studyHour" name="study-hour" size="34">
                 </div>
                 <div class="twitter-section">
                   <h2 class="modal-title" >Twitter用コメント</h2>
@@ -136,17 +134,17 @@ $hours = $pdo->query($hour_sql)->fetchAll(PDO::FETCH_ASSOC);
           <ul class="hour-list">
             <li class="hour-items-box">
               <p class="hour-title">Today</p>
-              <span class="hour-time"><?=3 ?></span>
+              <span class="hour-time"><?=(int)$hour_today["hour_today"] ?></span>
               <span class="hour-text">hour</span>
             </li>
             <li class="hour-items-box">
               <p class="hour-title">Month</p>
-              <span class="hour-time"><?=120 ?></span>
+              <span class="hour-time"><?=(int)$hour_month["hour_month"] ?></span>
               <span class="hour-text">hour</span>
             </li>
             <li class="hour-items-box">
               <p class="hour-title">Total</p>
-              <span class="hour-time"><?=1348 ?></span>
+              <span class="hour-time"><?=(int)$hour_total["hour_total"] ?></span>
               <span class="hour-text">hour</span>
             </li>
           </ul>
