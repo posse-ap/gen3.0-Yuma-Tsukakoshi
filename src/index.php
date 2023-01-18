@@ -2,19 +2,15 @@
 
 require_once(dirname(__FILE__) . '/dbconnect.php');
 require_once(dirname(__FILE__) . '/calc_hour.php');
+// require_once(dirname(__FILE__) . '/js_bar_charts.php');
+// require_once(dirname(__FILE__) . '/js_donut1_charts.php');
+// require_once(dirname(__FILE__) . '/js_donut2_charts.php');
 
 $content_sql = 'SELECT * FROM contents';
 $contents = $pdo->query($content_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 $language_sql = 'SELECT * FROM languages';
 $languages = $pdo->query($language_sql)->fetchAll(PDO::FETCH_ASSOC);
-
-
-// $content_record_sql = 'SELECT * FROM record_contents';
-// $content_record = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
-// $language_record_sql = 'SELECT * FROM record_languages';
-// $language_record = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 

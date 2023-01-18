@@ -25,6 +25,8 @@ $hour_month = $stmt_month->fetch(PDO::FETCH_ASSOC);
 $stmt_total = $pdo->query("SELECT sum(hours) as hour_total FROM study_hours");
 $hour_total = $stmt_total ->fetch(PDO::FETCH_ASSOC);
 
+
+//
 //db構造確認方法：
 // echo "<pre>";
 // print_r($変数名);
