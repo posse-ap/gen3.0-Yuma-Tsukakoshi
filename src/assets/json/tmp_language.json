@@ -1,0 +1,42 @@
+[
+  {
+    "name":"HTML",
+    "hours": 4.5,
+    "color": "#0042e5"
+  },
+  {
+    "name":"CSS",
+    "hours": 3.5,
+    "color": "#0070B9"
+  },
+  {
+    "name":"JavaScript",
+    "hours": 8,
+    "color": "#01BDDB"
+  },
+  {
+    "name":"PHP",
+    "hours": 8,
+    "color": "#02CDFA"
+  },
+  {
+    "name":"Laravel",
+    "hours": 4,
+    "color": "#B29DEE"
+  },
+  {
+    "name":"SQL",
+    "hours": 6.5,
+    "color": "#6C43E5"
+  },
+  {
+    "name":"SHELL",
+    "hours": 0,
+    "color": "#460AE8"
+  },
+  {
+    "name":"情報システム基礎知識(その他)",
+    "hours": 0,
+    "color": "#2C00B9"
+  }
+]

@@ -1,8 +1,24 @@
-'use strict';
+$.getJSON('http://localhost:8080/assets/json/contents.json', (contents) => {
 
-{
+// $.ajax({
+//   url: 'http://localhost:8080/api/donut2_json.php',
+//   type: 'GET',
+//   dataType: 'json',
+//   data: {
+//     month: displayMonth
+//   },
+//   async: false
+//   })
+//   .done(function (data) {
+//     if (data) {
+//       pieContentsData = data;
+//     }
+//   })
+
+// 'use strict';
+// {
   var options = {
-    series: [40,20, 40],
+    series: [40,20,40],
     chart: {
     height: 500,
     type: 'donut',
@@ -24,7 +40,8 @@
       }
     }
   },
-  labels: ["N予備校", "ドットインストール", "POSSE課題"],
+  // labels: ['N予備校','ドットインストール','POSSE課題'],
+  labels: contents,
 
   colors: ['#0042e5', '#0070B9', '#01BDDB'], 
 
@@ -66,4 +83,5 @@
 
   var chart = new ApexCharts(document.querySelector("#circle-charts2"), options);
   chart.render();
-}
+// } 
+})

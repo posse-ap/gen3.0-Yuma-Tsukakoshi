@@ -52,6 +52,7 @@ $hour_content = $stmt_content->fetchAll(PDO::FETCH_ASSOC);
 //でも、実際現段階ではいらない気がする。本来は時間が入ってない状態でINSERTされるから
 
 //db構造確認方法：
+// echo "<br>";
 // echo "<pre>";
 // print_r($変数名);
 // echo "</pre>";

@@ -1,12 +1,1 @@
-[
-  {
-      "HTML": 30,
-      "CSS": 20,
-      "JavaScript": 10,
-      "PHP": 5,
-      "Laravel": 5,
-      "SQL": 20,
-      "SHELL": 20,
-      "その他": 10
-  }
-]
+["HTML","CSS","JavaScript","PHP","Laravel","SQL","SHELL","情報システム基礎知識(その他)"]
