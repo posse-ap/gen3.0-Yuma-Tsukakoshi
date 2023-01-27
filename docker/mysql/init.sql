@@ -38,26 +38,26 @@ CREATE TABLE study_hours(
 )CHARSET=utf8;
 
 INSERT INTO study_hours(id,date,hours) VALUES
-(1,'2022-01-01','2'), 
-(2,'2022-01-03','2.5'), 
-(3,'2022-01-06','1.5'), 
-(4,'2022-01-08','4'), 
-(5,'2022-01-12','4.5'), 
-(6,'2022-01-13','2'), 
-(7,'2022-01-14','1.5'), 
-(8,'2022-01-15','2'), 
-(9,'2022-01-17','2.5'), 
-(10,'2022-01-17','3.5'), 
-(11,'2022-01-19','1.5'), 
-(12,'2022-01-19','2'), 
-(13,'2022-01-19','1'), 
-(14,'2022-01-21','2.5'), 
-(15,'2022-01-24','3'), 
-(16,'2022-01-25','1.5'), 
-(17,'2022-01-25','0.5'), 
-(18,'2022-01-25','3'), 
-(19,'2022-01-27','1.5'), 
-(20,'2022-01-29','2'); 
+(1,'2023-01-01','2'), 
+(2,'2023-01-03','2.5'), 
+(3,'2023-01-06','1.5'), 
+(4,'2023-01-08','4'), 
+(5,'2023-01-12','4.5'), 
+(6,'2023-01-13','2'), 
+(7,'2023-01-14','1.5'), 
+(8,'2023-01-15','2'), 
+(9,'2023-01-17','2.5'), 
+(10,'2023-01-17','3.5'), 
+(11,'2023-01-19','1.5'), 
+(12,'2023-01-19','2'), 
+(13,'2023-01-19','1'), 
+(14,'2023-01-21','2.5'), 
+(15,'2023-01-24','3'), 
+(16,'2023-01-25','1.5'), 
+(17,'2023-01-25','0.5'), 
+(18,'2023-01-25','3'), 
+(19,'2023-01-27','1.5'), 
+(20,'2023-01-29','2'); 
 
 
 -- 学習言語勉強記録テーブル
@@ -72,39 +72,6 @@ CREATE TABLE record_languages(
 )CHARSET=utf8;
 
 INSERT INTO record_languages(id, language_id, hours) VALUES 
-(1,1,1.5),
-(2,3,2.5),
-(3,1,1.5),
-(4,2,0.5),
-(5,1,1.5),
-(6,3,1.0),
-(7,3,2.5),
-(8,3,1.0),
-(9,3,1.5),
-(10,2,0.5),
-(11,1,1.0),
-(12,3,1.5),
-(13,3,2.5),
-(14,1,1.5),
-(15,2,1.5),
-(16,2,1.0),
-(17,3,4.5),
-(18,1,1.5),
-(19,3,4.0),
-(20,1,1.5);
-
--- 学習コンテンツ勉強記録テーブル
-DROP TABLE IF EXISTS record_contents;
-
-CREATE TABLE record_contents(
-  id INT AUTO_INCREMENT PRIMARY KEY COMMENT "ID",
-  content_id INT NOT NULL COMMENT "学習コンテンツID",
-  hours FLOAT NOT NULL COMMENT "学習時間",
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "作成日時",
-  updataed_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新日時"
-)CHARSET=utf8;
-
-INSERT INTO record_contents(id, content_id, hours) VALUES 
 (1,1,1.5),
 (2,3,2.5),
 (3,1,1.5),
@@ -124,6 +91,39 @@ INSERT INTO record_contents(id, content_id, hours) VALUES
 (17,4,4.5),
 (18,6,1.5),
 (19,5,4.0),
+(20,1,1.5);
+
+-- 学習コンテンツ勉強記録テーブル
+DROP TABLE IF EXISTS record_contents;
+
+CREATE TABLE record_contents(
+  id INT AUTO_INCREMENT PRIMARY KEY COMMENT "ID",
+  content_id INT NOT NULL COMMENT "学習コンテンツID",
+  hours FLOAT NOT NULL COMMENT "学習時間",
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "作成日時",
+  updataed_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新日時"
+)CHARSET=utf8;
+
+INSERT INTO record_contents(id, content_id, hours) VALUES 
+(1,1,1.5),
+(2,3,2.5),
+(3,1,1.5),
+(4,2,0.5),
+(5,1,1.5),
+(6,3,1.0),
+(7,3,2.5),
+(8,3,1.0),
+(9,3,1.5),
+(10,2,0.5),
+(11,1,1.0),
+(12,3,1.5),
+(13,3,2.5),
+(14,1,1.5),
+(15,2,1.5),
+(16,2,1.0),
+(17,3,4.5),
+(18,1,1.5),
+(19,3,4.0),
 (20,1,1.5);
 
 -- 学習言語テーブル

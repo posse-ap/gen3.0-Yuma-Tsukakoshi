@@ -9,15 +9,7 @@ $contents = $pdo->query($content_sql)->fetchAll(PDO::FETCH_ASSOC);
 $language_sql = 'SELECT * FROM languages';
 $languages = $pdo->query($language_sql)->fetchAll(PDO::FETCH_ASSOC);
 
-
-// $content_record_sql = 'SELECT * FROM record_contents';
-// $content_record = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
-// $language_record_sql = 'SELECT * FROM record_languages';
-// $language_record = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="ja">

@@ -1,6 +1,22 @@
-'use strict';
+$.getJSON('http://localhost:8080/assets/json/language.json', (languages) => {
 
-{
+// $.ajax({
+//   url: 'http://localhost:8080/api/donut1_json.php',
+//   type: 'GET',
+//   dataType: 'json',
+//   data: {
+//     month: displayMonth
+//   },
+//   async: false
+//   })
+//   .done(function (data) {
+//     if (data) {
+//       pieContentsData = data;
+//     }
+//   })
+
+// 'use strict';
+// {
   var options = {
     series: [30,20,10,5,5,20,20,10],
     chart: {
@@ -24,7 +40,8 @@
       }
     }
   },
-  labels: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "SQL", "SHELL","情報システム基礎知識(その他)"],
+  // labels: ['HTML','CSS','JavaScript','PHP','Laravel','SQL','SHELL','情報システム基礎知識(その他)'],
+  labels: languages,
 
   colors: ['#0042e5', '#0070B9', '#01BDDB', '#02CDFA', '#B29DEE', '#6C43E5', '#460AE8', '#2C00B9'],
 
@@ -72,4 +89,5 @@
 
   var chart = new ApexCharts(document.querySelector("#circle-charts1"), options);
   chart.render();
-}
+// }
+})
