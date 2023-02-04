@@ -12,7 +12,7 @@ $(function () {
       function (json) {
         const lenJSON=json.length;
         for(var i=0;i<lenJSON;i++){
-          hours.push(json[i].content_hours);
+          hours.push(json[i].hours);
           contents.push(json[i].name);
           set_colors.push(json[i].color);
         }

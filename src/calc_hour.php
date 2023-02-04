@@ -37,19 +37,26 @@ $stmt_date ->execute();
 $hour_each_date = $stmt_date ->fetchAll(PDO::FETCH_ASSOC);
 
 //言語別勉強時間
-$sql_language = "SELECT language_id, languages.language name ,sum(hours) language_hours FROM record_languages INNER JOIN languages ON record_languages.language_id = languages.id GROUP BY language_id ORDER BY language_id";
-$stmt_language = $pdo->prepare($sql_language);
-$stmt_language -> execute();
-$hour_language = $stmt_language->fetchAll(PDO::FETCH_ASSOC);
+//↓完成系
+// $sql_language = "SELECT languages.language name , origin1.record_id ,study_hours.hours, origin2.record_count , ROUND(study_hours.hours/record_count,1) FROM record_languages AS origin1 INNER JOIN languages ON origin1.language_id = languages.id LEFT OUTER JOIN (SELECT origin2.record_id, count(record_id) AS record_count FROM record_languages AS origin2 GROUP BY record_id) AS origin2 ON origin2.record_id = origin1.record_id LEFT OUTER JOIN study_hours ON study_hours.id = origin1.record_id"; 
+
+//↓表示用(各record 言語数で割り算)
+$sql_language_main = "SELECT languages.language name , ROUND(sum(study_hours.hours/record_count),1) hours,languages.color FROM record_languages AS origin1 INNER JOIN languages ON origin1.language_id = languages.id LEFT OUTER JOIN (SELECT origin2.record_id, count(record_id) AS record_count FROM record_languages AS origin2 GROUP BY record_id) AS origin2 ON origin2.record_id = origin1.record_id LEFT OUTER JOIN study_hours ON study_hours.id = origin1.record_id GROUP BY origin1.language_id";
+
+// $stmt_language = $pdo->prepare($sql_language_main);
+// $stmt_language -> execute();
+// $hour_language = $stmt_language->fetchAll(PDO::FETCH_ASSOC);
 
 //コンテンツ別学習時間
-$sql_content = "SELECT content_id,contents.content name, sum(hours) content_hours FROM record_contents INNER JOIN contents ON record_contents.content_id = contents.id GROUP BY content_id ORDER BY content_id";
-$stmt_content = $pdo->prepare($sql_content);
-$stmt_content -> execute();
-$hour_content = $stmt_content->fetchAll(PDO::FETCH_ASSOC);
+//↓完成系
+// $sql_content = "SELECT contents.content name , origin1.record_id ,study_hours.hours, origin2.record_count , ROUND(study_hours.hours/record_count,1) FROM record_contents AS origin1 INNER JOIN contents ON origin1.content_id = contents.id LEFT OUTER JOIN (SELECT origin2.record_id, count(record_id) AS record_count FROM record_contents AS origin2 GROUP BY record_id) AS origin2 ON origin2.record_id = origin1.record_id LEFT OUTER JOIN study_hours ON study_hours.id = origin1.record_id"; 
 
-//week32 もし更新時間が同じ場合、その時間における合計時間を要素数(count)で割って各時間に配当する->初めからダミーデータで時間が挿入されているからUPDATE文をsqlで作れば良い？
-//でも、実際現段階ではいらない気がする。本来は時間が入ってない状態でINSERTされるから
+//↓表示用(各record コンテンツ数で割り算)
+$sql_content_main = "SELECT contents.content name , origin1.record_id , study_hours.hours,ROUND(study_hours.hours/record_count,1) record_hours FROM record_contents AS origin1 INNER JOIN contents ON origin1.content_id = contents.id LEFT OUTER JOIN (SELECT origin2.record_id, count(record_id) AS record_count FROM record_contents AS origin2 GROUP BY record_id) AS origin2 ON origin2.record_id = origin1.record_id LEFT OUTER JOIN study_hours ON study_hours.id = origin1.record_id"; 
+
+// $stmt_content = $pdo->prepare($sql_content_main);
+// $stmt_content -> execute();
+// $hour_content = $stmt_content->fetchAll(PDO::FETCH_ASSOC);
 
 //db構造確認方法：
 // echo "<br>";

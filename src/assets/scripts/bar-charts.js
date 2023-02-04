@@ -38,9 +38,11 @@ $(function () {
   }).then(
     function (json) {
       const lenJSON = json.length;
+      
       for (var i=0; i<lastDay;i++){
         hour_data.push(0);
       }
+
       for (var j=0,k=0; j<lastDay;){
         let study_date = Number(json[k].date.substr(json[k].date.lastIndexOf('-')+1));
         let study_next_date = Number(json[k+1].date.substr(json[k+1].date.lastIndexOf('-')+1));

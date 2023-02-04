@@ -14,7 +14,7 @@ $(function () {
       for(var i=0 ; i<lenJSON ; i++){
         languages.push(json[i].name);
         set_colors.push(json[i].color);
-        hours.push(json[i].language_hours);
+        hours.push(json[i].hours);
       }
 
       var options = {
