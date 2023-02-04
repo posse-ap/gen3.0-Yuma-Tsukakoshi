@@ -13,11 +13,6 @@ $stmt_date -> bindValue(":month_first_day",$month_first);
 $stmt_date -> bindValue(":month_last_day",$month_last);
 $stmt_date ->execute();
 $json_hour_each_date = $stmt_date ->fetchAll(PDO::FETCH_ASSOC);
-// echo "<br>";
-// echo "<br>";
-// echo "<br>";
-// echo "<br>";
 echo json_encode($json_hour_each_date,JSON_UNESCAPED_UNICODE);
-
 
 ?>

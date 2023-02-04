@@ -1,5 +1,6 @@
 $(function () {
-  hour_data = [];
+  let hour_data = [];
+  let month_date =[];
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth()+1;
@@ -37,13 +38,14 @@ $(function () {
   }).then(
     function (json) {
       const lenJSON = json.length;
+      
       for (var i=0; i<lastDay;i++){
         hour_data.push(0);
       }
+
       for (var j=0,k=0; j<lastDay;){
         let study_date = Number(json[k].date.substr(json[k].date.lastIndexOf('-')+1));
         let study_next_date = Number(json[k+1].date.substr(json[k+1].date.lastIndexOf('-')+1));
-        
         if(study_date == (j+1)){
           hour_data[study_date-1]=json[k].hours;
           j = study_next_date-1;
@@ -54,6 +56,10 @@ $(function () {
           }
           k++;
         }
+      }
+
+      for(var d=1;d<=lastDay;d++){
+        month_date.push(String(d));
       }
 
       var options = {
@@ -125,7 +131,7 @@ $(function () {
           }
         },
     
-        labels : ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30','31'],
+        labels : month_date,
     
         fill: {
             colors:["#1174BD"],

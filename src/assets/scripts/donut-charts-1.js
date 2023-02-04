@@ -1,93 +1,93 @@
-$.getJSON('http://localhost:8080/assets/json/language.json', (languages) => {
+$(function () {
+  let hours = [];
+  let languages = [];
+  let set_colors = [];
 
-// $.ajax({
-//   url: 'http://localhost:8080/api/donut1_json.php',
-//   type: 'GET',
-//   dataType: 'json',
-//   data: {
-//     month: displayMonth
-//   },
-//   async: false
-//   })
-//   .done(function (data) {
-//     if (data) {
-//       pieContentsData = data;
-//     }
-//   })
-
-// 'use strict';
-// {
-  var options = {
-    series: [30,20,10,5,5,20,20,10],
-    chart: {
-    height: 500,
-    type: 'donut',
-  },
-  stroke: {
-    width: 0,
-  },
-  plotOptions: {
-    pie: {
-      donut: {
-        size:'45px',
-        labels: {
-          show: true,
-          total: {
-            showAlways: false,
-            show: false
-          }
-        }
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:8080/api/donut1_json.php",
+    dataType: "json",
+    async: false,
+  }).then(
+    function (json) {
+      const lenJSON = json.length;
+      for(var i=0 ; i<lenJSON ; i++){
+        languages.push(json[i].name);
+        set_colors.push(json[i].color);
+        hours.push(json[i].hours);
       }
-    }
-  },
-  // labels: ['HTML','CSS','JavaScript','PHP','Laravel','SQL','SHELL','情報システム基礎知識(その他)'],
-  labels: languages,
 
-  colors: ['#0042e5', '#0070B9', '#01BDDB', '#02CDFA', '#B29DEE', '#6C43E5', '#460AE8', '#2C00B9'],
+      var options = {
+        series: hours,
+        chart: {
+          height: 500,
+          type: 'donut',
+        },
+        stroke: {
+          width: 0,
+        },
+        plotOptions: {
+          pie: {
+            donut: {
+              size:'45px',
+              labels: {
+                show: true,
+                total: {
+                  showAlways: false,
+                  show: false
+                }
+              }
+            }
+          }
+        },
 
-  dataLabels: {
-    style: {
-      fontSize: '0.8rem',
-    }
-  },
+        labels: languages,
+        colors: set_colors,
 
-  states: {
-    hover: {
-      filter: 'none'
-    }
-  },
-  
-  legend: {
-    position: 'bottom',
-    horizontalAlign: 'left', 
-    fontSize: '15px',
-  },
+        dataLabels: {
+          style: {
+            fontSize: '0.8rem',
+          }
+        },
 
-  responsive: [{
-    breakpoint: 480,
-    options: {
-      plotOptions: {
-        pie: {
-        offsetY: 0
-        }
-      },
-      title: {
-        style: {
-          fontSize: '13px',
-          color:  '#263238'
-        }
-      },
-    chart: {
-    },
-    legend: {
-        position: 'bottom',
-        fontSize: '8px',
-    }
-    }
-  }]
-  };
+        states: {
+          hover: {
+            filter: 'none'
+          }
+        },
 
-  var chart = new ApexCharts(document.querySelector("#circle-charts1"), options);
-  chart.render();
-// }
-})
+        legend: {
+          position: 'bottom',
+          horizontalAlign: 'left', 
+          fontSize: '15px',
+        },
+
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            plotOptions: {
+              pie: {
+              offsetY: 0
+              }
+            },
+            title: {
+              style: {
+                fontSize: '13px',
+                color:  '#263238'
+              }
+            },
+            chart: {
+            },
+            legend: {
+                position: 'bottom',
+                fontSize: '8px',
+            }
+          }
+        }]
+      };
+      
+      var chart = new ApexCharts(document.querySelector("#circle-charts1"), options);
+      chart.render(); 
+    }
+  );
+}); 
