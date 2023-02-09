@@ -108,6 +108,11 @@ $(function () {
         },  
       
         grid: {
+          xaxis:{
+            lines:{
+              show:false
+            },
+          },
           yaxis: { 
               lines: {
                   show: false
