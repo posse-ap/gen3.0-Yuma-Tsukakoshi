@@ -46,15 +46,20 @@
         },
       },
     },  
-  
+
     grid: {
+      xaxis:{
+        lines:{
+          show:false
+        },
+      },
       yaxis: { 
           lines: {
               show: false
           },
       }, 
     },
-  
+    
     yaxis: {
       labels: {
         formatter: function (value) {
