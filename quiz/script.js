@@ -61,9 +61,9 @@
         ${Answer}<i class="u-icon-arrow"></i>
     </button>
   </li>`
-
   ); //mapメソッドにアロー関数で引数を2つ、valueとindexという名前でとる。1つ目の引数のvalueには配列の値が入り、2つ目の引数のindexにはインデックス番号が入る。
   const Shulle_Answer_HTML = AnsShuffle(AnswersHtml).join("")
+  console.log(Shulle_Answer_HTML);
 
 //<blockquote>タグのHTML
   const QuoteHtml = quizItem.Quote ? `<blockquote class="p-quiz-box-note">
