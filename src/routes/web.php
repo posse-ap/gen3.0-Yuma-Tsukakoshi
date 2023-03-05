@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebAppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/webapp', function () {
-    return view('webapp');
-});
+Route::get('/webapp', [WebAppController::class,'index'])->name('webapp');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

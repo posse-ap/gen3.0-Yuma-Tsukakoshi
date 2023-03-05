@@ -44,17 +44,17 @@
                   <div class="study-contents">
                     <h2 class="modal-title">学習コンテンツ(複数選択可)</h2>
                     <div class="contents-list">
-                      {{-- <?php foreach($contents as $key => $content){ ?>
-                        <input type="checkbox" id="check<?=$key+1 ?>" class="input-checkbox" name="content" value="<?=$content["content"]?>"><label for="check<?=$key+1 ?>" class="label"><?=$content["content"]?></label>
-                      <?php } ?> --}}
+                      @foreach ($contents as $content)
+                      <input type="checkbox" id="check{{$loop->iteration}}" class="input-checkbox" name="content" value="{{$content->content}}"><label for="check{{$loop->iteration}}" class="label">{{$content->content}}</label>
+                      @endforeach
                     </div>
                   </div>
                   <div class="study-language">
                     <h2 class="modal-title">学習言語(複数選択可)</h2>
                     <div class="language-list">
-                      {{-- <?php foreach($languages as $key => $language){ ?>
-                        <input type="checkbox" id="check<?=$key + 1 + count($contents) ?>" class="input-checkbox" name="language" value="<?=$language["language"]?>"><label for="check<?=$key + 1 + count($contents) ?>" class="label"><?=$language["language"]?></label>
-                      <?php } ?> --}}
+                      @foreach ($languages as $language)
+                      <input type="checkbox" id="check{{$loop->iteration + count($contents)}}" class="input-checkbox" name="language" value="{{$language->language}}"><label for="check{{$loop->iteration + count($contents)}}" class="label">{{$language->language}}</label>
+                      @endforeach
                     </div>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                   <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area"  onkeyup="viewStrLen();"cols="37" rows="13"></textarea>
                   <script src="https://platform.twitter.com/widgets.js" defer></script>
                   <div class="sharing-wrapper">
-                    {{-- <input type="checkbox" id="check<?=count($contents) + count($languages) + 1 ?>" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="check<?=count($contents) + count($languages) + 1 ?>" class="share-text">Twitterにシェアする</label> --}}
+                    <input type="checkbox" id="check<?=count($contents) + count($languages) + 1 ?>" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="check<?=count($contents) + count($languages) + 1 ?>" class="share-text">Twitterにシェアする</label>
                   </div>
                 </div>
               </div>
