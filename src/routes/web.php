@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::get('/webapp', [WebAppController::class,'index'])->name('webapp');
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

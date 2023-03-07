@@ -69,7 +69,7 @@
                   <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area"  onkeyup="viewStrLen();"cols="37" rows="13"></textarea>
                   <script src="https://platform.twitter.com/widgets.js" defer></script>
                   <div class="sharing-wrapper">
-                    <input type="checkbox" id="check<?=count($contents) + count($languages) + 1 ?>" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="check<?=count($contents) + count($languages) + 1 ?>" class="share-text">Twitterにシェアする</label>
+                    <input type="checkbox" id="check{{count($contents) + count($languages) + 1 }}" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="check{{count($contents) + count($languages) + 1 }}" class="share-text">Twitterにシェアする</label>
                   </div>
                 </div>
               </div>
@@ -112,17 +112,19 @@
           <ul class="hour-list">
             <li class="hour-items-box">
               <p class="hour-title">Today</p>
-              {{-- <span class="hour-time"><?=(int)$hour_today["hour_today"] ?></span> --}}
+              <span class="hour-time">
+                <span class="hour-time">{{ $today_hours != null ? (int)$today_hours->hour_today : 0 }}</span>
+              </span>
               <span class="hour-text">hour</span>
             </li>
             <li class="hour-items-box">
               <p class="hour-title">Month</p>
-              {{-- <span class="hour-time"><?=(int)$hour_month["hour_month"] ?></span> --}}
+              <span class="hour-time">{{ $month_hours != null ? (int)$month_hours->hour_month : 0}}</span>
               <span class="hour-text">hour</span>
             </li>
             <li class="hour-items-box">
               <p class="hour-title">Total</p>
-              {{-- <span class="hour-time"><?=(int)$hour_total["hour_total"] ?></span> --}}
+              <span class="hour-time">{{ $total_hours != null ? (int)$total_hours->hour_total : 0}}</span>
               <span class="hour-text">hour</span>
             </li>
           </ul>
