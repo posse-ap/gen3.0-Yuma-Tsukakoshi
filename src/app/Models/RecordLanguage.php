@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class RecordLanguage extends Model
 {
     use HasFactory;
+
+    public function GetRecordLanguage(){
+        
+    }
 }

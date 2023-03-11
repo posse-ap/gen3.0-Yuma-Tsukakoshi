@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class RecordContent extends Model
 {
     use HasFactory;
+
+    public function GetRecordContent(){
+
+    }
 }
