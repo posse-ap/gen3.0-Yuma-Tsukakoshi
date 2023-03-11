@@ -21,14 +21,14 @@ $languages = $pdo->query($language_sql)->fetchAll(PDO::FETCH_ASSOC);
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/error.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <script src="./assets/scripts/jquery-3.6.1.min.js" defer></script>
+  <script src="./assets/js/jquery-3.6.1.min.js" defer></script>
   <script src="https://unpkg.com/apexcharts/dist/apexcharts.min.js" defer></script>
-  <script src="./assets/scripts/count.js" defer></script>
-  <script src="./assets/scripts/bar-charts.js" defer></script>
-  <script src="./assets/scripts/donut-charts-1.js" defer></script>
-  <script src="./assets/scripts/donut-charts-2.js" defer></script>
-  <script src="./assets/scripts/calender.js" defer></script>
-  <script src="./assets/scripts/modal.js" defer></script>
+  <script src="./assets/js/count.js" defer></script>
+  <script src="./assets/js/bar-charts.js" defer></script>
+  <script src="./assets/js/donut-charts-1.js" defer></script>
+  <script src="./assets/js/donut-charts-2.js" defer></script>
+  <script src="./assets/js/calender.js" defer></script>
+  <script src="./assets/js/modal.js" defer></script>
 </head>
 
 <body>
