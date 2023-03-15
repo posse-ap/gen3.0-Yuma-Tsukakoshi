@@ -19,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/webapp', [WebAppController::class,'index'])->name('webapp');
+Route::get('/webapp', [WebAppController::class,'index'])->middleware(['auth', 'verified'])->name('webapp');
+
 
 
 Route::get('/dashboard', function () {
