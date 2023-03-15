@@ -29,4 +29,11 @@ class WebAppController extends Controller
         // dd($languages);
         return view('webapp',compact('contents','languages','today_hours','month_hours','total_hours'));
     }
+
+    public function getBarData()
+    {
+        $study_hour = new StudyHour;
+        $result = $study_hour->getMonthStudyArray();
+        return $result;
+    }
 }

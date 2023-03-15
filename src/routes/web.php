@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebAppController;
+use App\Models\StudyHour;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/', function () {
 
 Route::get('/webapp', [WebAppController::class,'index'])->middleware(['auth', 'verified'])->name('webapp');
 
-
+Route::get('/bar_data',[WebAppController::class,'getBarData']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

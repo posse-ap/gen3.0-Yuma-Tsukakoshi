@@ -13,10 +13,9 @@ class StudyHour extends Model
     {
         return $this;
     }
-
     public function getTodayTime()
     {
-        $today = Carbon::now()->format('Y-m-d');
+        $today = Carbon::now()->format('Y-m-d');   
         return $this->selectRaw('SUM(hours) AS hour_today')
         ->where('date',$today)
         ->groupBy('date')
@@ -39,6 +38,19 @@ class StudyHour extends Model
         ->first();
         //getメソッドを使っているので、複数のデータを取得してくる可能性があり。->firstで値一つだけ
         // dd($total_hours);
+    }
+
+    public function getMonthStudyArray()
+    {
+        $month_first_day = Carbon::now()->startOfMonth()->toDateString();
+        $month_last_day = Carbon::now()->endOfMonth()->toDateString();
+        $bar_data = $this
+        ->selectRaw('date')
+        ->selectRaw('SUM(hours) AS hours')
+        ->whereBetween('date',[$month_first_day,$month_last_day])
+        ->groupBy('date')->get();
+        // dd($bar_data);
+        return $bar_data;
     }
 
 }

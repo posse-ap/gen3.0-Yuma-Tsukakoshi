@@ -32,11 +32,12 @@ $(function () {
 
   $.ajax({
     type: "GET",
-    url: 'http://localhost:8080/api/bar_json.php',
+    url: 'http://localhost/bar_data',
     dataType: "json",
     async: false,
   }).then(
     function (json) {
+      console.log(json);
       const lenJSON = json.length;
       
       for (var i=0; i<lastDay;i++){
