@@ -48,8 +48,8 @@ class StudyHour extends Model
         ->selectRaw('date')
         ->selectRaw('SUM(hours) AS hours')
         ->whereBetween('date',[$month_first_day,$month_last_day])
-        ->groupBy('date')->get();
-        // dd($bar_data);
+        ->groupBy('date')
+        ->get();
         return $bar_data;
     }
 

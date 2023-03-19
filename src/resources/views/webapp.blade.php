@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="{{asset('/assets/css/error.css')}}">
   <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
   <script src="{{asset('/assets/js/jquery-3.6.1.min.js')}}" defer></script>
-  <script src="https://unpkg.com/apexcharts/dist/apexcharts.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
   <script src="{{asset('/assets/js/count.js')}}" defer></script>
   <script src="{{asset('/assets/js/bar-charts.js')}}" defer></script>
   <script src="{{asset('/assets/js/donut-charts-1.js')}}" defer></script>

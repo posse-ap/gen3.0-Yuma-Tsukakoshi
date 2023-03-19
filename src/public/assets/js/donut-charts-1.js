@@ -5,7 +5,7 @@ $(function () {
 
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/api/donut1_json.php",
+    url: "http://localhost/pie1_data",
     dataType: "json",
     async: false,
   }).then(

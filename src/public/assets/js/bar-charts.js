@@ -37,9 +37,7 @@ $(function () {
     async: false,
   }).then(
     function (json) {
-      console.log(json);
       const lenJSON = json.length;
-      
       for (var i=0; i<lastDay;i++){
         hour_data.push(0);
       }

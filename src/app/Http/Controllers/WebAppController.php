@@ -36,4 +36,17 @@ class WebAppController extends Controller
         $result = $study_hour->getMonthStudyArray();
         return $result;
     }
+
+    public function getPie1Data()
+    {
+        $language_hour = new RecordLanguage;
+        $result = $language_hour->GetRecordLanguage();
+        return $result;
+    }
+    public function getPie2Data()
+    {
+        $content_hour = new RecordContent;
+        $result = $content_hour->GetRecordContent();
+        return $result;
+    }
 }
