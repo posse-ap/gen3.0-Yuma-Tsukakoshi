@@ -20,6 +20,7 @@ DB_PASSWORD=password
 <img width="202" alt="スクリーンショット 2022-06-07 16 16 15" src="https://user-images.githubusercontent.com/74942852/172319499-e9457712-e1c6-4f3b-aa64-53a748b39d1a.png">
 
 error対処
-logs -> chmod -R 777 storage logs 
-database -> php artisan migrate:refresh --seed
-require index.php -> composer update
+viteが定義されてない -> npm i で初期化  
+logs -> chmod -R 777 storage logs  
+database -> php artisan migrate:refresh --seed  
+require index.php -> composer update  
