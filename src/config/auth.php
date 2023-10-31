@@ -36,9 +36,16 @@ return [
     */
 
     'guards' => [
+        // web->一般ユーザー用の認証機能
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        // guardsは認証機能の提供
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -69,6 +76,12 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        // guardsのproviderで指定したものをここで指定する
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     /*
