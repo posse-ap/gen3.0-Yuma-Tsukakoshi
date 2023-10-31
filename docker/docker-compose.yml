@@ -35,3 +35,14 @@ services:
     ports:
         - 8025:8025
         - 1025:1025
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=0
+      - PMA_HOSTS=mysql
+      - PMA_USER=posse
+      - PMA_PASSWORD=password
+    links:
+      - db
+    ports:
+      - 8081:80
