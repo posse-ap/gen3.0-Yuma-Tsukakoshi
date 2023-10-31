@@ -38,7 +38,7 @@ class AdminRegisterController extends Controller
 
     event(new Registered($admin));
 
-    // 管理者としてログインを試行する
+    // 管理者としてログインを試行する->useとの違い
     Auth::guard('admin')->login($admin);
 
     return redirect(RouteServiceProvider::HOME);

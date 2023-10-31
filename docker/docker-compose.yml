@@ -39,8 +39,8 @@ services:
     image: phpmyadmin/phpmyadmin
     environment:
       - PMA_ARBITRARY=0
-      - PMA_HOSTS=mysql
-      - PMA_USER=posse
+      - PMA_HOSTS=db
+      - PMA_USER=laravel
       - PMA_PASSWORD=password
     links:
       - db
