@@ -19,9 +19,9 @@ class Language extends Model
         'id',
     ];
 
-    // protected $dates = [
-    //     'deleted_at',
-    // ];
+    protected $dates = [
+        'deleted_at',
+    ];
 
     public function languages()
     {
