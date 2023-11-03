@@ -42,6 +42,12 @@ class WebAppController extends Controller
             'hours' => $request->study_hour,
         ];
         $study_hour = StudyHour::create($study_data);
+
+        $record_id = $study_hour->id;
+        // $record_contents = [
+        //     'record_id' => $record_id,
+        //     'content_id' => $request->content,
+        // ];
         
         $request->session()->flash('message', '投稿しました');
         return back();
