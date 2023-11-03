@@ -53,7 +53,7 @@
                       <h2 class="modal-title">学習コンテンツ(複数選択可)</h2>
                       <div class="contents-list">
                         @foreach ($contents as $content)
-                        <input type="checkbox" id="check{{$loop->iteration}}" class="input-checkbox" name="content" value="{{$content->content}}"><label for="check{{$loop->iteration}}" class="label">{{$content->content}}</label>
+                        <input type="checkbox" id="check{{$loop->iteration}}" class="input-checkbox" name="content[]" value="{{$content->id}}"><label for="check{{$loop->iteration}}" class="label">{{$content->content}}</label>
                         @endforeach
                       </div>
                     </div>
@@ -61,7 +61,7 @@
                       <h2 class="modal-title">学習言語(複数選択可)</h2>
                       <div class="language-list">
                         @foreach ($languages as $language)
-                        <input type="checkbox" id="check{{$loop->iteration + count($contents)}}" class="input-checkbox" name="language" value="{{$language->language}}"><label for="check{{$loop->iteration + count($contents)}}" class="label">{{$language->language}}</label>
+                        <input type="checkbox" id="check{{$loop->iteration + count($contents)}}" class="input-checkbox" name="language[]" value="{{$language->id}}"><label for="check{{$loop->iteration + count($contents)}}" class="label">{{$language->language}}</label>
                         @endforeach
                       </div>
                     </div>
