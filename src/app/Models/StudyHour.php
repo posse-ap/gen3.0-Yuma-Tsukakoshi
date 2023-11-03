@@ -5,10 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class StudyHour extends Model
 {
+    use SoftDeletes;
     use HasFactory;
+
+    protected $fillable = [
+        'date',
+        'hours',
+    ];
+
+    protected $guarded = [
+        'id',
+    ];
+
+    protected $dates = [
+        'deleted_at',
+    ];
+
     public function study_hours()
     {
         return $this;
