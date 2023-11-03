@@ -33,49 +33,51 @@
           <button class="modal-close-button js-closeModal">x</button>
           <button class="modal-back-button js-backModal">←</button>
           <!-- jsで中身の内容変えてく -->
-          <div class="modal-top" id="modal-top">
-            <div class="modal-both">
-              <div class="modal-left">
-                <div class="study-day">
-                  <h2 class="modal-title">学習日</h2>
-                  <input class="study-day-box input-text" type="text" id="studyDay-modalButton" name="study-day">
-                </div>
-                <div class="study-items">
-                  <div class="study-contents">
-                    <h2 class="modal-title">学習コンテンツ(複数選択可)</h2>
-                    <div class="contents-list">
-                      @foreach ($contents as $content)
-                      <input type="checkbox" id="check{{$loop->iteration}}" class="input-checkbox" name="content" value="{{$content->content}}"><label for="check{{$loop->iteration}}" class="label">{{$content->content}}</label>
-                      @endforeach
+          <form action="">
+            <div class="modal-top" id="modal-top">
+              <div class="modal-both">
+                <div class="modal-left">
+                  <div class="study-day">
+                    <h2 class="modal-title">学習日</h2>
+                    <input class="study-day-box input-text" type="text" id="studyDay-modalButton" name="study-day">
+                  </div>
+                  <div class="study-items">
+                    <div class="study-contents">
+                      <h2 class="modal-title">学習コンテンツ(複数選択可)</h2>
+                      <div class="contents-list">
+                        @foreach ($contents as $content)
+                        <input type="checkbox" id="check{{$loop->iteration}}" class="input-checkbox" name="content" value="{{$content->content}}"><label for="check{{$loop->iteration}}" class="label">{{$content->content}}</label>
+                        @endforeach
+                      </div>
+                    </div>
+                    <div class="study-language">
+                      <h2 class="modal-title">学習言語(複数選択可)</h2>
+                      <div class="language-list">
+                        @foreach ($languages as $language)
+                        <input type="checkbox" id="check{{$loop->iteration + count($contents)}}" class="input-checkbox" name="language" value="{{$language->language}}"><label for="check{{$loop->iteration + count($contents)}}" class="label">{{$language->language}}</label>
+                        @endforeach
+                      </div>
                     </div>
                   </div>
-                  <div class="study-language">
-                    <h2 class="modal-title">学習言語(複数選択可)</h2>
-                    <div class="language-list">
-                      @foreach ($languages as $language)
-                      <input type="checkbox" id="check{{$loop->iteration + count($contents)}}" class="input-checkbox" name="language" value="{{$language->language}}"><label for="check{{$loop->iteration + count($contents)}}" class="label">{{$language->language}}</label>
-                      @endforeach
+                </div>
+                <div class="modal-right">
+                  <div class="study-time">
+                    <h2 class="modal-title">学習時間</h2>
+                    <input class="study-time-box input-text" type="text" id="studyHour" name="study-hour" size="34">
+                  </div>
+                  <div class="twitter-section">
+                    <h2 class="modal-title" >Twitter用コメント</h2>
+                    <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area"  onkeyup="viewStrLen();"cols="37" rows="13"></textarea>
+                    <script src="https://platform.twitter.com/widgets.js" defer></script>
+                    <div class="sharing-wrapper">
+                      <input type="checkbox" id="check{{count($contents) + count($languages) + 1 }}" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="check{{count($contents) + count($languages) + 1 }}" class="share-text">Twitterにシェアする</label>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="modal-right">
-                <div class="study-time">
-                  <h2 class="modal-title">学習時間</h2>
-                  <input class="study-time-box input-text" type="text" id="studyHour" name="study-hour" size="34">
-                </div>
-                <div class="twitter-section">
-                  <h2 class="modal-title" >Twitter用コメント</h2>
-                  <textarea class="twitter-comment-box input-text " name="twitter" id="tweet-area"  onkeyup="viewStrLen();"cols="37" rows="13"></textarea>
-                  <script src="https://platform.twitter.com/widgets.js" defer></script>
-                  <div class="sharing-wrapper">
-                    <input type="checkbox" id="check{{count($contents) + count($languages) + 1 }}" class="input-checkbox js-twitter" name="twitter" value="twitter"><label for="check{{count($contents) + count($languages) + 1 }}" class="share-text">Twitterにシェアする</label>
-                  </div>
-                </div>
-              </div>
+              <button class="header-button bottom" id="record-modalButton">記録・投稿</button>
             </div>
-            <button class="header-button bottom" id="record-modalButton">記録・投稿</button>
-          </div>
+          </form>
           <!-- top-modal -->
           
           <div class="access-record open-record" id="access-record">
