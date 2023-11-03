@@ -8,9 +8,7 @@ use App\Models\Language;
 use App\Models\RecordContent;
 use App\Models\RecordLanguage;
 use App\Models\StudyHour;
-use Database\Seeders\LanguageSeeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
 class WebAppController extends Controller
 {
@@ -34,11 +32,10 @@ class WebAppController extends Controller
     {
         /*
         保存データ
-        study-day : 日付 
-        study-hour : 時間
-        content : コンテンツ 配列扱いになる？
-        language: 言語 配列扱いになる？
-        record_idは最後のidを取得して、+1する ⇒ 変数に入れて配列すべてその数字で更新する方針で
+        content : コンテンツ 配列扱いにしたい
+        language: 言語 配列扱いにしたい
+        record_id: 最後のidを取得して、+1する ⇒ 変数に入れて配列すべてその数字で更新する方針で
+        content_id: keyを取得して対応するコンテンツを入れる
         */
         $study_data = [
             'date' => $request->study_day,

@@ -11,7 +11,7 @@
   <script src="{{asset('/assets/js/jquery-3.6.1.min.js')}}" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
   <script src="{{asset('/assets/js/count.js')}}" defer></script>
-  <script src="{{asset('/assets/js/bar-charts.js')}}" defer></script>
+  {{-- <script src="{{asset('/assets/js/bar-charts.js')}}" defer></script> --}}
   <script src="{{asset('/assets/js/donut-charts-1.js')}}" defer></script>
   <script src="{{asset('/assets/js/donut-charts-2.js')}}" defer></script>
   <script src="{{asset('/assets/js/calender.js')}}" defer></script>
