@@ -8,6 +8,7 @@ use App\Models\Language;
 use App\Models\RecordContent;
 use App\Models\RecordLanguage;
 use App\Models\StudyHour;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class WebAppController extends Controller
@@ -38,6 +39,7 @@ class WebAppController extends Controller
         content_id: keyを取得して対応するコンテンツを入れる
         */
         $study_data = [
+            'user_id' => Auth::id(),
             'date' => $request->study_day,
             'hours' => $request->study_hour,
         ];

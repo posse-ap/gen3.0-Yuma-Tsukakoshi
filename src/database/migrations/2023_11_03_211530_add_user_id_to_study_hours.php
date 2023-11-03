@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('study_hours', function (Blueprint $table) {
             //
-            $table->bigInteger('user_id')->before('date');
+            $table->bigInteger('user_id')->after('id');
         });
     }
 

@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('bar_data', [WebAppController::class, 'getBarData']);
-// Route::get('pie1_data', [WebAppController::class, 'getPie1Data']);
-// Route::get('pie2_data', [WebAppController::class, 'getPie2Data']);
+// Route::get('/bar_data', [WebAppController::class, 'getBarData']);
+// Route::get('/pie1_data', [WebAppController::class, 'getPie1Data']);
+// Route::get('/pie2_data', [WebAppController::class, 'getPie2Data']);

@@ -15,6 +15,7 @@ class StudyHour extends Model
     protected $fillable = [
         'date',
         'hours',
+        'user_id',
     ];
 
     protected $guarded = [
