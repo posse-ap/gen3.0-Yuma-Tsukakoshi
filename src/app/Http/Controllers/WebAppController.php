@@ -30,7 +30,21 @@ class WebAppController extends Controller
         return view('webapp',compact('contents','languages','today_hours','month_hours','total_hours'));
     }
 
-    
+    public function store(Request $request)
+    {
+        /*
+        保存データ
+        study-day : 日付 
+        study-hour : 時間
+        content : コンテンツ 配列扱いになる？
+        language: 言語 配列扱いになる？
+        */
+        $study_data = [
+            
+        ]
+        $request->session()->flash('message', '投稿しました');
+        return back();
+    }
 
 
     public function getBarData()

@@ -27,6 +27,12 @@
       </div>
       <button class="header-button js-openModal">記録・投稿</button>
     </nav>
+
+    @if (session('message'))
+      <div class="alert alert-success text-red-600 font-bold">
+          {{ session('message') }}
+      </div>
+    @endif
     <div class="overlay">
       <div class="modal">
         <div class="modal-content" id="js-modal-content">
