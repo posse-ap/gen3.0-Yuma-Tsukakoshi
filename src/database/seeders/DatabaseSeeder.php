@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
                 LanguageSeeder::class,
                 RecordContentSeeder::class,
                 RecordLanguageSeeder::class,
-                StudyHourSeeder::class
+                StudyHourSeeder::class,
+                UserSeeder::class,
             ]);
         }
     }

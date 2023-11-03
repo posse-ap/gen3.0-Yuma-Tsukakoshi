@@ -17,8 +17,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('study_hours')->insert([
-            ['id'=>1, 'name'=>'塚越雄真', 'mail'=>'yttn9984kawa@gmail.com', 'password'=>'password']
+        DB::table('users')->insert([
+            [
+                'id'=>1, 
+                'name'=>'塚越雄真', 
+                'email'=>'yttn9984kawa@gmail.com',
+                'password'=>'password',
+            ]
         ]);
     }
 }
