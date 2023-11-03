@@ -74,7 +74,7 @@
       return calendarHtml
   }
   function setStudyDay(date = String(day).padStart(2, '0'), year = thisyear, month = thismonth) {
-    return `${year}/${String(month + 1).padStart(2, '0')}/${date}`;
+    return `${year}-${String(month + 1).padStart(2, '0')}-${date}`;
   }
 
   const inputStudyDay = document.getElementById('studyDay-modalButton')
