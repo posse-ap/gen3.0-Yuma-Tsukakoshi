@@ -26,7 +26,7 @@ class RecordContent extends Model
     }
     public function GetRecordContent(){
         $origin2 = $this 
-        -> selectRaw('origin2.record_id')
+        ->selectRaw('origin2.record_id')
         ->selectRaw('COUNT(record_id) AS record_count')
         ->from('record_contents AS origin2')
         ->groupBy('record_id');
