@@ -60,7 +60,7 @@
         $('#show-calendar').css("display","block");
         $('.js-closeModal').css("display","none");
         $('.modal-back-button').css("display","block");
-    },3000);
+    },1000);
   })
 
   $('.js-closeModal').on('click',function(){

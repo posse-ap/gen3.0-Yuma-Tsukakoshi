@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('languages', function (Blueprint $table) {
             //
-            $table->softDeletes()->after('language_id');
+            $table->softDeletes()->after('color');
         });
     }
 

@@ -461,7 +461,6 @@ td {
   opacity: 0;
 }
 .is-disabled {
-  color: #ccc;
   font-weight: bold;
   cursor: pointer;
 }
@@ -470,6 +469,7 @@ td {
   font-weight: bold;
 }
 .is-available {
+  color: #ccc;
   font-weight: bold;
 }
 .is-selected{

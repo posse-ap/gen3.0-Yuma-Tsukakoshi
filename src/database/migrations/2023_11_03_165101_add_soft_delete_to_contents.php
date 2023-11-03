@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('contents', function (Blueprint $table) {
             //
-            $table->softDeletes()->after('content_id');
+            $table->softDeletes()->after('color');
         });
     }
 

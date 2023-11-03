@@ -13,7 +13,7 @@
       show: 1,
   }
   const changeYearMonth = document.getElementById('js-changeMonth')
-  changeYearMonth.innerHTML = thisyear + '年' + (thismonth+1) + '月'
+  changeYearMonth.innerHTML = thisyear + '/' + (thismonth+1) + '/'
 
   function showCalendar(year, month) {
       for (let i = 0; i < config.show; i++) {
