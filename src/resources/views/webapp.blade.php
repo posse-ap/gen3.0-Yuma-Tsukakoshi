@@ -33,7 +33,8 @@
           <button class="modal-close-button js-closeModal">x</button>
           <button class="modal-back-button js-backModal">←</button>
           <!-- jsで中身の内容変えてく -->
-          <form action="">
+          <form method="POST" action="{{ route('webapp.store')}}">
+            @csrf
             <div class="modal-top" id="modal-top">
               <div class="modal-both">
                 <div class="modal-left">

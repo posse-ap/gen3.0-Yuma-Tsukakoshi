@@ -30,6 +30,9 @@ class WebAppController extends Controller
         return view('webapp',compact('contents','languages','today_hours','month_hours','total_hours'));
     }
 
+    
+
+
     public function getBarData()
     {
         $study_hour = new StudyHour;
@@ -49,4 +52,5 @@ class WebAppController extends Controller
         $result = $content_hour->GetRecordContent();
         return $result;
     }
+
 }

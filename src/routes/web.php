@@ -68,4 +68,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
+// 投稿処理
+Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
+
 require __DIR__.'/auth.php';
