@@ -38,6 +38,7 @@ class WebAppController extends Controller
         study-hour : 時間
         content : コンテンツ 配列扱いになる？
         language: 言語 配列扱いになる？
+        record_idは最後のidを取得して、+1する ⇒ 変数に入れて配列すべてその数字で更新する方針で
         */
         $study_data = [
             'date' => $request->study_day,
