@@ -10,6 +10,16 @@ class RecordContent extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'record_id',
+        'user_id',
+        'content_id',
+    ];
+
+    protected $guarded = [
+        'id',
+    ];
+
     public function record_content()
     {
         return $this;

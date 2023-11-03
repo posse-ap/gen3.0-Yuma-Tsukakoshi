@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\DB;
 class WebAppController extends Controller
 {
     //
+
     public function index()
     {
         $study_hour = new StudyHour;
-        $contents = Content::select('content')->get();
-        $languages = Language::select('language')->get();
+        $contents = Content::all();
+        $languages = Language::all();
 
         $today_hours = $study_hour->getTodayTime();
         $month_hours = $study_hour->getMonthTime();
@@ -31,28 +32,40 @@ class WebAppController extends Controller
 
     public function store(Request $request)
     {
-        /*
-        保存データ
-        content : コンテンツ 配列扱いにしたい
-        language: 言語 配列扱いにしたい
-        record_id: 最後のidを取得して、+1する ⇒ 変数に入れて配列すべてその数字で更新する方針で
-        content_id: keyを取得して対応するコンテンツを入れる
-        */
+        $user_id = Auth::id();
+        
         $study_data = [
-            'user_id' => Auth::id(),
+            'user_id' => $user_id,
             'date' => $request->study_day,
             'hours' => $request->study_hour,
         ];
         $study_hour = StudyHour::create($study_data);
-
+        // 取得した最後のidをrecord_idに入れる
         $record_id = $study_hour->id;
 
-        // 取得したコンテンツ分、record_contentsテーブルに保存する繰り返し処理書きたい
+        $contents = $request->content;
+        $languages = $request->language;
+        // dd($contents,$languages);
         
-
+        foreach($contents as $content){
+            $record_content = [
+                'user_id' => $user_id,
+                'record_id' => $record_id,
+                'content_id' => $content,
+            ];
+            RecordContent::create($record_content);
+        }
+        
+        foreach($languages as $language){
+            $record_language = [
+                'user_id' => $user_id,
+                'record_id' => $record_id,
+                'language_id' => $language,
+            ];
+            RecordLanguage::create($record_language);
+        }
 
         $request->session()->flash('message', '投稿しました');
-
         return back();
     }
 

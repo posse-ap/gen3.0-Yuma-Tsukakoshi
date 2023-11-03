@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\DB;
 class RecordLanguage extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'record_id',
+        'user_id',
+        'language_id',
+    ];
+
+    protected $guarded = [
+        'id',
+    ];
+
     public function record_language()
     {
         return $this;

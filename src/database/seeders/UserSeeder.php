@@ -23,7 +23,19 @@ class UserSeeder extends Seeder
                 'name'=>'塚越雄真', 
                 'email'=>'yttn9984kawa@gmail.com',
                 'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            ]
+            ],
+            [
+                'id'=>2, 
+                'name'=>'塚越雄真2', 
+                'email'=>'tatata@gmail.com',
+                'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            ],
+            [
+                'id'=>3, 
+                'name'=>'塚越雄真3', 
+                'email'=>'jijiji@gmail.com',
+                'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            ],
         ]);
     }
 }
