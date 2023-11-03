@@ -13,7 +13,7 @@
       show: 1,
   }
   const changeYearMonth = document.getElementById('js-changeMonth')
-  changeYearMonth.innerHTML = thisyear + '/' + (thismonth+1) + '/'
+  changeYearMonth.innerHTML = thisyear + '年' + (thismonth+1) + '月'
 
   function showCalendar(year, month) {
       for (let i = 0; i < config.show; i++) {
@@ -74,7 +74,7 @@
       return calendarHtml
   }
   function setStudyDay(date = String(day).padStart(2, '0'), year = thisyear, month = thismonth) {
-    return `${year}年${String(month + 1).padStart(2, '0')}月${date}日`;
+    return `${year}/${String(month + 1).padStart(2, '0')}/${date}`;
   }
 
   const inputStudyDay = document.getElementById('studyDay-modalButton')
