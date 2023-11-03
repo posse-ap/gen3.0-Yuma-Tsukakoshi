@@ -18,7 +18,6 @@ return new class extends Migration
             $table->date('date');
             $table->float('hours');
             $table->timestamps();
-            // ↑作成日時
             // 更新日時も作成する
         });
     }

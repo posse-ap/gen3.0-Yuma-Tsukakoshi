@@ -40,8 +40,11 @@ class WebAppController extends Controller
         language: 言語 配列扱いになる？
         */
         $study_data = [
-            
-        ]
+            'date' => $request->study_day,
+            'hours' => $request->study_hour,
+        ];
+        $study_hour = StudyHour::create($study_data);
+        
         $request->session()->flash('message', '投稿しました');
         return back();
     }

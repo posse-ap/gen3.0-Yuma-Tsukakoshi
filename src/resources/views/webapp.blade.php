@@ -46,7 +46,7 @@
                 <div class="modal-left">
                   <div class="study-day">
                     <h2 class="modal-title">学習日</h2>
-                    <input class="study-day-box input-text" type="text" id="studyDay-modalButton" name="study-day">
+                    <input class="study-day-box input-text" type="text" id="studyDay-modalButton" name="study_day">
                   </div>
                   <div class="study-items">
                     <div class="study-contents">
@@ -70,7 +70,7 @@
                 <div class="modal-right">
                   <div class="study-time">
                     <h2 class="modal-title">学習時間</h2>
-                    <input class="study-time-box input-text" type="text" id="studyHour" name="study-hour" size="34">
+                    <input class="study-time-box input-text" type="text" id="studyHour" name="study_hour" size="34">
                   </div>
                   <div class="twitter-section">
                     <h2 class="modal-title" >Twitter用コメント</h2>
