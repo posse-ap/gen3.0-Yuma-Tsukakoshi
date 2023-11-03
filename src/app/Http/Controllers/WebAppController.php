@@ -44,12 +44,13 @@ class WebAppController extends Controller
         $study_hour = StudyHour::create($study_data);
 
         $record_id = $study_hour->id;
-        // $record_contents = [
-        //     'record_id' => $record_id,
-        //     'content_id' => $request->content,
-        // ];
+
+        // 取得したコンテンツ分、record_contentsテーブルに保存する繰り返し処理書きたい
         
+
+
         $request->session()->flash('message', '投稿しました');
+
         return back();
     }
 

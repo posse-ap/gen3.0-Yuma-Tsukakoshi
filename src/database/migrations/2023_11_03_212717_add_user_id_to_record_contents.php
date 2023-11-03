@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('record_languages', function (Blueprint $table) {
+        Schema::table('record_contents', function (Blueprint $table) {
             //
-            $table->bigInteger('user_id')->after('id');
+            $table->bigInteger('user_id')->after('record_id');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('record_languages', function (Blueprint $table) {
+        Schema::table('record_contents', function (Blueprint $table) {
             //
             $table->dropColumn('user_id');
         });

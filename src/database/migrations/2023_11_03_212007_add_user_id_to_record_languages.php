@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('record_languages', function (Blueprint $table) {
             //
-            $table->bigInteger('user_id')->after('id');
+            $table->bigInteger('user_id')->after('record_id');
         });
     }
 
