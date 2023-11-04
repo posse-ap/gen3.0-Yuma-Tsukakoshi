@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
+use App\Http\Controllers\ContentPostController;
 use App\Http\Controllers\LanguagePostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,10 @@ Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
 // 学習言語 リソースコントローラー
 Route::get('admin/languages_create', [LanguagePostController::class,'create']) ->name('languages.create');
 Route::post('admin', [LanguagePostController::class,'store']) ->name('languages.store');
+
+// コンテンツ リソースコントローラー
+Route::get('admin/contents_create', [ContentPostController::class,'create']) ->name('contents.create');
+Route::post('admin', [ContentPostController::class,'store']) ->name('contents.store');
 
 
 require __DIR__.'/auth.php';
