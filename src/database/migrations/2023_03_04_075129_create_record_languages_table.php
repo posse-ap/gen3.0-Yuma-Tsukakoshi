@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('record_id');
             $table->integer('language_id');
             $table->timestamps();
-            //更新日時も作らねば
         });
     }
 

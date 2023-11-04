@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('language');
             $table->string('color');
+            $table->timestamps();
         });
     }
 
