@@ -24,3 +24,9 @@ viteが定義されてない -> npm i で初期化
 logs -> chmod -R 777 storage logs  
 database -> php artisan migrate:refresh --seed  
 require index.php -> composer update  
+
+## week61 webapp 投稿処理後の画像
+![スクリーンショット 2023-11-04 102254](https://github.com/posse-ap/gen3.0-Yuma-Tsukakoshi/assets/107422037/3f5de6ee-d0e8-4ade-9b89-6fad93c58b27)
+![スクリーンショット 2023-11-04 102304](https://github.com/posse-ap/gen3.0-Yuma-Tsukakoshi/assets/107422037/54cdabfc-a1ae-4f14-ba8a-c047d69c35eb)
+
+
