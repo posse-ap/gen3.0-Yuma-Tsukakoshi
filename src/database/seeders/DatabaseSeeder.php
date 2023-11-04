@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 RecordLanguageSeeder::class,
                 StudyHourSeeder::class,
                 UserSeeder::class,
+                AdminSeeder::class,
             ]);
         }
     }
