@@ -74,10 +74,12 @@ Route::group(['prefix' => 'admin'], function () {
 Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
 
 // 学習言語 リソースコントローラー
+Route::get('admin/languages', [LanguagePostController::class,'index']) ->name('languages.index');
 Route::get('admin/languages_create', [LanguagePostController::class,'create']) ->name('languages.create');
 Route::post('admin', [LanguagePostController::class,'store']) ->name('languages.store');
 
 // コンテンツ リソースコントローラー
+Route::get('admin/contents', [ContentPostController::class, 'index'])->name('contents.index');
 Route::get('admin/contents_create', [ContentPostController::class,'create']) ->name('contents.create');
 Route::post('admin', [ContentPostController::class,'store']) ->name('contents.store');
 

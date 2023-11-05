@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class LanguagePostController extends Controller
 {
     //
+    public function index()
+    {
+        $languages = Language::all();
+        return view('admin.languages_index', compact('languages'));
+    }
     public function create()
     {
         return view('admin.languages_create');

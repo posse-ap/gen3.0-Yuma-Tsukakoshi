@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class ContentPostController extends Controller
 {
     //
+    public function index()
+    {
+        $contents = Content::all();
+        return view('admin.contents_index', compact('contents'));
+    }
     public function create()
     {
         return view('admin.contents_create');
