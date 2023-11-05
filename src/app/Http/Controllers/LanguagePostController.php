@@ -57,5 +57,15 @@ class LanguagePostController extends Controller
         $request->session()->flash('message', '更新が完了しました');
 
         return back();
-    }   
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $language = Language::find($id);
+        $language->delete();
+
+        $request->session()->flash('message', '削除が完了しました');
+
+        return redirect()->route('languages.index');
+    }
 }
