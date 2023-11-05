@@ -34,4 +34,10 @@ class ContentPostController extends Controller
 
         return back();
     }
+
+    public function show($id)
+    {
+        $content = Content::find($id);
+        return view('admin.contents_show', compact('content'));
+    }
 }

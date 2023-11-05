@@ -11,7 +11,9 @@
           @foreach ($contents as $content)
               <div class="mt-4 p-2 bg-white w-full rounded-2xl">
                 <h1 class="p-2 text-lg font-semibold">
-                  {{ $content->content }}
+                  <a href="{{route('contents.show' , $content)}}" class="text-blue-600">
+                    {{ $content->content }}
+                  </a>
                 </h1>
                 <hr class="w-full">
                 <p class="mt-4 p-2">

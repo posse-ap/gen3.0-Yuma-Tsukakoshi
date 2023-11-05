@@ -44,11 +44,10 @@ class RecordContent extends Model
             // origin2.record_id = origin1.record_id だとできなかった
         })
         ->join('study_hours', function($join) {
-            $join->on('origin1.record_id', '=', 'study_hours.id');
+            $join->on('origin1.record_id', '=', 'study_hours.id')
+            ->where('user_id', auth()->id());
         })
         ->groupBy('origin1.content_id')
-        // ->groupBy('user_id')
-        // ->having('user_id', auth()->id())
         ->get();
         return $content_data;
     }

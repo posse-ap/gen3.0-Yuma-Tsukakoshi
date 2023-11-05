@@ -34,4 +34,10 @@ class LanguagePostController extends Controller
 
         return back();
     }
+
+    public function show($id)
+    {
+        $language = Language::find($id);
+        return view('admin.languages_show', compact('language'));
+    }
 }

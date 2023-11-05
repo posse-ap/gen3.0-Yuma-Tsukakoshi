@@ -11,7 +11,9 @@
           @foreach ($languages as $language)
               <div class="mt-4 p-2 bg-white w-full rounded-2xl">
                 <h1 class="p-2 text-lg font-semibold">
-                  {{ $language->language }}
+                  <a href="{{route('languages.show' , $language)}}" class="text-blue-600">
+                    {{ $language->language }}
+                  </a>
                 </h1>
                 <hr class="w-full">
                 <p class="mt-4 p-2">
