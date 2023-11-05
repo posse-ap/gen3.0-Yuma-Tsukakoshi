@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class LanguagePostController extends Controller
 {
     //
-    public function user_language_relation()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user_language_relation()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
     public function index()
     {
         $languages = Language::all();

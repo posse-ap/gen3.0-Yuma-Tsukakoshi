@@ -46,6 +46,8 @@ class RecordLanguage extends Model
             $join->on('origin1.record_id', '=', 'study_hours.id');
         })
         ->groupBy('origin1.language_id')
+        // ->groupBy('user_id')
+        // ->having('user_id', auth()->id())
         ->get();
         return $language_data;
     }

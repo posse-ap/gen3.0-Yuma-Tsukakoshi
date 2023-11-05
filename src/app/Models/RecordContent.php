@@ -47,6 +47,8 @@ class RecordContent extends Model
             $join->on('origin1.record_id', '=', 'study_hours.id');
         })
         ->groupBy('origin1.content_id')
+        // ->groupBy('user_id')
+        // ->having('user_id', auth()->id())
         ->get();
         return $content_data;
     }

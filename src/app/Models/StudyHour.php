@@ -26,10 +26,10 @@ class StudyHour extends Model
         'deleted_at',
     ];
 
-    public function user_study_hour_relation()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user_study_hour_relation()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 
     public function study_hours()
     {
@@ -40,7 +40,9 @@ class StudyHour extends Model
         $today = Carbon::now()->format('Y-m-d');   
         return $this->selectRaw('SUM(hours) AS hour_today')
         ->where('date',$today)
+        ->groupBy('user_id')
         ->groupBy('date')
+        ->having('user_id', auth()->id())
         ->first();
         // dd($today_hours);
     }
@@ -51,12 +53,16 @@ class StudyHour extends Model
         $month_first_day = Carbon::now()->format('Y-m-01');
         return $this->selectRaw('SUM(hours) AS hour_month')
         ->whereBetween('date',[$month_first_day,$today])
+        ->groupBy('user_id')
+        ->having('user_id' ,auth()->id())
         ->first();
         // dd($month_hours);
     }
     public function getTotalTime()
     {
         return $this->selectRaw('SUM(hours) AS hour_total')
+        ->groupBy('user_id')
+        ->having('user_id', auth()->id())
         ->first();
         //getメソッドを使っているので、複数のデータを取得してくる可能性があり。->firstで値一つだけ
         // dd($total_hours);
@@ -70,7 +76,9 @@ class StudyHour extends Model
         ->selectRaw('date')
         ->selectRaw('SUM(hours) AS hours')
         ->whereBetween('date',[$month_first_day,$month_last_day])
+        ->groupBy('user_id')
         ->groupBy('date')
+        ->having('user_id', auth()->id())
         ->get();
         return $bar_data;
     }
