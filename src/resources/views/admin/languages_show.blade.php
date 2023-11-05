@@ -12,6 +12,13 @@
               <h1 class="p-2 text-lg font-semibold">
                 {{ $language->language }}
               </h1>
+              <div class="text-right">
+                <a href="{{route('languages.edit' , $language)}}" class="text-blue-600">
+                  <x-primary-button>
+                    編集
+                  </x-primary-button>
+                </a>
+              </div>
               <hr class="w-full">
               <p class="mt-4 p-2">
                 {{ $language->color }}

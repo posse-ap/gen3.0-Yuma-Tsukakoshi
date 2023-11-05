@@ -87,6 +87,6 @@ Route::get('admin/contents_create', [ContentPostController::class,'create']) ->n
 Route::post('admin', [ContentPostController::class,'store']) ->name('contents.store');
 Route::get('admin/contents_edit/{post}', [ContentPostController::class, 'edit'])->name('contents.edit');
 Route::patch('admin/contents_update/{post}', [ContentPostController::class, 'update'])->name('contents.update');
-
+Route::delete('admin/contents_delete/{post}', [ContentPostController::class, 'destroy'])->name('contents.destroy');
 
 require __DIR__.'/auth.php';
