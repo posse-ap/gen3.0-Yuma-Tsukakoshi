@@ -80,6 +80,8 @@ Route::get('admin/languages_create', [LanguagePostController::class,'create']) -
 Route::post('admin', [LanguagePostController::class,'store']) ->name('languages.store');
 Route::get('admin/languages_edit/{post}', [LanguagePostController::class, 'edit'])->name('languages.edit');
 Route::patch('admin/languages_update/{post}', [LanguagePostController::class, 'update'])->name('languages.update');
+Route::delete('admin/languages_delete/{post}', [LanguagePostController::class, 'destroy'])->name('languages.destroy');
+
 // コンテンツ リソースコントローラー
 Route::get('admin/contents', [ContentPostController::class, 'index'])->name('contents.index');
 Route::get('admin/contents_show/{post}', [ContentPostController::class, 'show'])->name('contents.show');

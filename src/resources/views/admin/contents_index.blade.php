@@ -8,6 +8,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          @if (session('message'))
+              <div class="text-red-600 font-bold">
+                {{ session('message') }}
+              </div>
+          @endif
           @foreach ($contents as $content)
               <div class="mt-4 p-2 bg-white w-full rounded-2xl">
                 <h1 class="p-2 text-lg font-semibold">

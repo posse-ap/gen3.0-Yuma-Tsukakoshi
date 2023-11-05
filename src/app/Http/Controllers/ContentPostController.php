@@ -59,4 +59,13 @@ class ContentPostController extends Controller
 
         return back();
     }
+    public function destroy(Request $request, $id)
+    {
+        $content = Content::find($id);
+        $content->delete();
+
+        $request->session()->flash('message', '削除が完了しました');
+
+        return redirect()->route('contents.index');
+    }
 }
