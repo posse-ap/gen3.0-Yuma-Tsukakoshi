@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ContentPostController extends Controller
 {
     //
+    public function user_content_relation(){
+        return $this->belongsTo(User::class);
+    }
+
     public function index()
     {
         $contents = Content::all();

@@ -26,6 +26,11 @@ class StudyHour extends Model
         'deleted_at',
     ];
 
+    public function user_study_hour_relation()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function study_hours()
     {
         return $this;
