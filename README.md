@@ -24,3 +24,8 @@ viteが定義されてない -> npm i で初期化
 logs -> chmod -R 777 storage logs  
 database -> php artisan migrate:refresh --seed  
 require index.php -> composer update  
+
+スタート方法  
+cd ./docker | docker compose up -d
+docker compose exec app sh 
+cd ../src | npm run dev
