@@ -40,4 +40,23 @@ class ContentPostController extends Controller
         $content = Content::find($id);
         return view('admin.contents_show', compact('content'));
     }
+
+    public function edit($id)
+    {
+        $content = Content::find($id);
+        return view('admin.contents_edit', compact('content'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $content = Content::find($id);
+        $content->update([
+            'content' => $request->content,
+            'color' => $request->color,
+        ]);
+
+        $request->session()->flash('message', '更新が完了しました');
+
+        return back();
+    }
 }
