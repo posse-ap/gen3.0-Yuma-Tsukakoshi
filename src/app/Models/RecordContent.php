@@ -31,6 +31,8 @@ class RecordContent extends Model
         ->from('record_contents AS origin2')
         ->groupBy('record_id');
 
+        // 学習時間の取得をuser_id絞り込みできるようにする必要がある！
+
         $content_data = $this
         ->selectRaw('contents.content AS name')
         ->selectRaw('ROUND(SUM(study_hours.hours/record_count),1) AS hours')
@@ -44,8 +46,9 @@ class RecordContent extends Model
             // origin2.record_id = origin1.record_id だとできなかった
         })
         ->join('study_hours', function($join) {
+            // 副問い合わせでgroupby(user_id) havingでuser_idを絞り込む
             $join->on('origin1.record_id', '=', 'study_hours.id')
-            ->where('user_id', auth()->id());
+            ->where('study_hours.user_id', auth()->id());
         })
         ->groupBy('origin1.content_id')
         ->get();

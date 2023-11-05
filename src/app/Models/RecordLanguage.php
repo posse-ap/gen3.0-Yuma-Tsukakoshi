@@ -43,11 +43,10 @@ class RecordLanguage extends Model
             // origin2.record_id = origin1.record_id だとできなかった
         })
         ->leftJoin('study_hours', function($join) {
-            $join->on('origin1.record_id', '=', 'study_hours.id');
+            $join->on('origin1.record_id', '=', 'study_hours.id')
+            ->where('study_hours.user_id', auth()->id());
         })
         ->groupBy('origin1.language_id')
-        // ->groupBy('user_id')
-        // ->having('user_id', auth()->id())
         ->get();
         return $language_data;
     }

@@ -78,12 +78,15 @@ Route::get('admin/languages', [LanguagePostController::class,'index']) ->name('l
 Route::get('admin/languages_show/{post}', [LanguagePostController::class, 'show'])->name('languages.show');
 Route::get('admin/languages_create', [LanguagePostController::class,'create']) ->name('languages.create');
 Route::post('admin', [LanguagePostController::class,'store']) ->name('languages.store');
-
+Route::get('admin/languages_edit/{post}', [LanguagePostController::class, 'edit'])->name('languages.edit');
+Route::patch('admin/languages_update/{post}', [LanguagePostController::class, 'update'])->name('languages.update');
 // コンテンツ リソースコントローラー
 Route::get('admin/contents', [ContentPostController::class, 'index'])->name('contents.index');
 Route::get('admin/contents_show/{post}', [ContentPostController::class, 'show'])->name('contents.show');
 Route::get('admin/contents_create', [ContentPostController::class,'create']) ->name('contents.create');
 Route::post('admin', [ContentPostController::class,'store']) ->name('contents.store');
+Route::get('admin/contents_edit/{post}', [ContentPostController::class, 'edit'])->name('contents.edit');
+Route::patch('admin/contents_update/{post}', [ContentPostController::class, 'update'])->name('contents.update');
 
 
 require __DIR__.'/auth.php';
