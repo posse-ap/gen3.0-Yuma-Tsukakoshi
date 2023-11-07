@@ -27,7 +27,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        
+        return view('admin.user_create');
     }
 
     /**
@@ -39,6 +39,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $user = User::create([
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'password'=> bcrypt($request->password),
+        ]);
+
+        $request->session()->flash('message', '登録が完了しました');
+
+        return back();
     }
 
     /**
@@ -47,9 +56,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
+        $user = User::find($id);
+        return view('admin.users_show', compact('user'));
     }
 
     /**
@@ -58,9 +69,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
+        $user = User::find($id);
+        return view('admin.users_edit', compact('user'));
     }
 
     /**
@@ -70,9 +83,19 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         //
+        $user = User::find($id);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+        $request->session()->flash('message', '更新が完了しました');
+
+        return back();
     }
 
     /**
@@ -81,8 +104,14 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, $id)
     {
         //
+        $user = User::find($id);
+        $user->delete();
+
+        $request->session()->flash('message', '削除が完了しました');
+
+        return redirect()->route('users.index');
     }
 }

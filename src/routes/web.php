@@ -72,7 +72,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 // ユーザー画面の追加
-Route::resource('/admin/users', UserController::class)->except(['show']) ;
+Route::resource('/admin/users', UserController::class);
 
 // 投稿処理
 Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
