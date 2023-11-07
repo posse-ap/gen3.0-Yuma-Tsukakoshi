@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\ContentPostController;
 use App\Http\Controllers\LanguagePostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebAppController;
 use App\Models\StudyHour;
@@ -69,6 +70,9 @@ Route::group(['prefix' => 'admin'], function () {
             ->name('admin.dashboard');
     });
 });
+
+// ユーザー画面の追加
+Route::resource('/admin/users', UserController::class);
 
 // 投稿処理
 Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
