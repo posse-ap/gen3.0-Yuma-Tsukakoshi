@@ -13,12 +13,12 @@
                 {{ $user->name }}
               </h1>
               <div class="text-right">
-                <a href="{{route('languages.edit' , $language)}}" class="text-blue-600">
+                <a href="{{route('users.edit' , $user)}}" class="text-blue-600">
                   <x-primary-button>
                     編集
                   </x-primary-button>
                 </a>
-                <form method="post" action="{{route('languages.destroy', $language)}}" class="flex-2">
+                <form method="post" action="{{route('users.destroy', $user)}}" class="flex-2">
                   @csrf
                   @method('delete')
                   <x-primary-button class="ml-2 bg-red-700">

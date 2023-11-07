@@ -19,14 +19,14 @@
             <div class="mt-8">
               <div class="w-full flex flex-col">
                 <label for="name" class="font-semibold mt-4">名前</label>
-                <input type="text" name="language" class="w-auto py-2 border border-gray-300 rounded-md" id="name" value="{{old('name', $user->name)}}">
+                <input type="text" name="name" class="w-auto py-2 border border-gray-300 rounded-md" id="name" value="{{old('name', $user->name)}}">
               </div>
             </div>
 
             <div class="mt-8">
               <div class="w-full flex flex-col">
                 <label for="color" class="font-semibold mt-4">メールアドレス</label>
-                <input type="color" name="color" class="w-auto p-8 border border-gray-300 rounded-md" id="color"  value="{{old('color', $user->email)}}">
+                <input type="email" name="email" class="w-auto p-8 border border-gray-300 rounded-md" id="color"  value="{{old('color', $user->email)}}">
               </div>
             </div>
 
