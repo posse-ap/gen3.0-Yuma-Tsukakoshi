@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>webapp</title>
   <link rel="stylesheet" href="{{asset('/assets/css/reset.css')}}">
   <link rel="stylesheet" href="{{asset('/assets/css/error.css')}}">
@@ -27,19 +28,14 @@
       </div>
       <button class="header-button js-openModal">記録・投稿</button>
     </nav>
-
-    @if (session('message'))
-      <div class="alert alert-success text-red-600 font-bold">
-          {{ session('message') }}
-      </div>
-    @endif
+    
     <div class="overlay">
       <div class="modal">
         <div class="modal-content" id="js-modal-content">
           <button class="modal-close-button js-closeModal">x</button>
           <button class="modal-back-button js-backModal">←</button>
           <!-- jsで中身の内容変えてく -->
-          <form method="POST" action="{{ route('webapp.store')}}">
+          <form method="POST" action="{{ route('webapp.store')}}" id="recordForm">
             @csrf
             <div class="modal-top" id="modal-top">
               <div class="modal-both">
