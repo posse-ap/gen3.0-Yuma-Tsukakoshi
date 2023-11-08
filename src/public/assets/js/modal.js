@@ -65,25 +65,23 @@
     })
     .done(function (data) {
       $('#loading').css("display","none");
+      $('#error-record').css("display","none");
       $('#access-record').css("display","block");
       unChecked(checkbox);
       Textclear(InputTexts);
       tweet();
-
-      $('#studyDay-modalButton').val(`${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`);
-    
-    })
-    .fail(function (data,XMLHttpRequest, textStatus, errorThrown) {
-      $('#loading').css("display","none");
-      $('#error-record').css("display","block");
-      $('#studyDay-modalButton').val(`${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`);
+// データベースには保存されているが、302エラーでリダイレクトされてしまう ⇒ return back()が怪しい 
+// データに保存された×OK 正常にstoreメソッドが実行されているOK ⇒ doneが実行される 
       console.log(date);
       console.log(contents);
       console.log(languages);
       console.log(study_hour);
-      // console.log("XMLHttpRequest : " + XMLHttpRequest.status);
-      // console.log("textStatus     : " + textStatus);
-      // console.log("errorThrown    : " + errorThrown.message);
+    })
+    .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+      $('#loading').css("display","none");
+      $('#access-record').css("display","none");
+      $('#error-record').css("display","block");
+      $('#studyDay-modalButton').val(`${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`);
     })
   });
 

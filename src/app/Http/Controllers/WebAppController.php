@@ -45,7 +45,6 @@ class WebAppController extends Controller
 
         $contents = $request->contents;
         $languages = $request->languages;
-        dd($contents,$languages);
         
         foreach($contents as $content){
             $record_content = [
@@ -66,7 +65,7 @@ class WebAppController extends Controller
         }
 
         $request->session()->flash('message', '投稿しました');
-        return back();
+        return 1;
     }
 
 
