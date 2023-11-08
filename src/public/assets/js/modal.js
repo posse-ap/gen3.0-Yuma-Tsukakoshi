@@ -28,6 +28,7 @@
       );
     }
   }; 
+  // 学習時間の取得 非同期通信
 
   
   //modal遷移
@@ -70,12 +71,6 @@
       unChecked(checkbox);
       Textclear(InputTexts);
       tweet();
-// データベースには保存されているが、302エラーでリダイレクトされてしまう ⇒ return back()が怪しい 
-// データに保存された×OK 正常にstoreメソッドが実行されているOK ⇒ doneが実行される 
-      console.log(date);
-      console.log(contents);
-      console.log(languages);
-      console.log(study_hour);
     })
     .fail(function (XMLHttpRequest, textStatus, errorThrown) {
       $('#loading').css("display","none");
