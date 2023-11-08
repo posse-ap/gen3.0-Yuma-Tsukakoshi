@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // 投稿処理
-Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
+Route::post('/webapp_store', [WebAppController::class,'store'])->name('webapp.store');
 
 
 Route::middleware(['auth','admin'])->group(function () {
