@@ -95,7 +95,18 @@
             <span class="record-text">記録・投稿<br>完了しました</span>
           </div>
           <!-- record-modal -->
-          
+
+          <div class="error-main" id="error-record">
+            <div class="access-error">
+              <span class="error-title">ERROR</span>
+              <figure class="icon-attention">
+                <img src="./assets/img/icon-attention.png" alt="">
+              </figure>
+              <span class="error-text">一時的にご利用できない状態です。<br>しばらく経ってから<br>再度アクセスしてください。</span>
+            </div>
+          </div>
+          {{-- record-error --}}
+        
           <div class="loading open-loading" id="loading">
             <div class="circle"></div>
           </div>

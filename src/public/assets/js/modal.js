@@ -27,6 +27,8 @@
       );
     }
   }; 
+
+  $("#error-record").hide();
   
   //modal遷移
   let $Timeloading;
@@ -51,20 +53,14 @@
     $('#access-record').css("display","none");
   });
 
-  let $TimeCalendar;
   $('#studyDay-modalButton').on('click',function(){
     $('#modal-top').css("display","none");
-    $('#loading').css("display","block");
-    $TimeCalendar = setTimeout(function(){
-        $('#loading').css("display","none");
-        $('#show-calendar').css("display","block");
-        $('.js-closeModal').css("display","none");
-        $('.modal-back-button').css("display","block");
-    },1000);
+    $('#show-calendar').css("display","block");
+    $('.js-closeModal').css("display","none");
+    $('.modal-back-button').css("display","block");
   })
 
   $('.js-closeModal').on('click',function(){
-    clearTimeout($TimeCalendar);
     $('#modal-top').css("display","block");
     $('#loading').css("display","none");
     $('#access-record').css("display","none");
