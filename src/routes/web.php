@@ -47,51 +47,27 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-/*
-|--------------------------------------------------------------------------
-| 管理者用ルーティング
-|--------------------------------------------------------------------------
-*/
-// Route::group(['prefix' => 'admin'], function () {
-//     // 登録
-//     Route::get('register', [AdminRegisterController::class, 'create'])
-//         ->name('admin.register');
-//     Route::post('register', [AdminRegisterController::class, 'store']);
-
-//     // ログイン
-//     Route::get('login', [AdminLoginController::class, 'showLoginPage'])
-//         ->name('admin.login');
-//     Route::post('login', [AdminLoginController::class, 'login']);
-
-//     // 以下の中は認証必須のエンドポイントとなる
-//     Route::middleware(['auth:admin'])->group(function () {
-//         // ダッシュボード
-//         Route::get('dashboard', fn () => view('admin.dashboard'))
-//             ->name('admin.dashboard');
-//     });
-// });
-
 // 投稿処理
 Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
 
 
-Route::middleware('can:admin')->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
     // ユーザー画面の追加
-    Route::resource('/admin/users', UserController::class);
+    Route::resource('/admin/users', UserController::class)->middleware('can:admin');
     // 学習言語 リソースコントローラー
-    Route::get('admin/languages', [LanguagePostController::class,'index'])->name('languages.index');
+    Route::get('admin/languages', [LanguagePostController::class,'index'])->name('languages.index')->middleware('can:admin');
     Route::get('admin/languages_show/{post}', [LanguagePostController::class, 'show'])->name('languages.show');
     Route::get('admin/languages_create', [LanguagePostController::class,'create']) ->name('languages.create');
-    Route::post('admin', [LanguagePostController::class,'store']) ->name('languages.store');
+    Route::post('admin/languages_store', [LanguagePostController::class,'store']) ->name('languages.store');
     Route::get('admin/languages_edit/{post}', [LanguagePostController::class, 'edit'])->name('languages.edit');
     Route::patch('admin/languages_update/{post}', [LanguagePostController::class, 'update'])->name('languages.update');
     Route::delete('admin/languages_delete/{post}', [LanguagePostController::class, 'destroy'])->name('languages.destroy');
     
     // コンテンツ リソースコントローラー
-    Route::get('admin/contents', [ContentPostController::class, 'index'])->name('contents.index');
+    Route::get('admin/contents', [ContentPostController::class, 'index'])->name('contents.index')->middleware('can:admin');
     Route::get('admin/contents_show/{post}', [ContentPostController::class, 'show'])->name('contents.show');
     Route::get('admin/contents_create', [ContentPostController::class,'create']) ->name('contents.create');
-    Route::post('admin', [ContentPostController::class,'store']) ->name('contents.store');
+    Route::post('admin/contents_store', [ContentPostController::class,'store']) ->name('contents.store');
     Route::get('admin/contents_edit/{post}', [ContentPostController::class, 'edit'])->name('contents.edit');
     Route::patch('admin/contents_update/{post}', [ContentPostController::class, 'update'])->name('contents.update');
     Route::delete('admin/contents_delete/{post}', [ContentPostController::class, 'destroy'])->name('contents.destroy');
