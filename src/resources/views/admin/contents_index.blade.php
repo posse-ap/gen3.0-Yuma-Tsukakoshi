@@ -26,6 +26,11 @@
                 </p>
               </div>
           @endforeach
+          <a href="{{route('contents.create')}}" class="text-blue-600">
+            <x-primary-button>
+              新規作成
+            </x-primary-button>
+          </a>
         </div>
     </div>
 </x-app-layout>

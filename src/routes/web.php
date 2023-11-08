@@ -74,13 +74,12 @@ Route::middleware('auth')->group(function () {
 // 投稿処理
 Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
 
-// ユーザー画面の追加
-Route::resource('/admin/users', UserController::class)->middleware('can:admin');
 
-Route::middleware(['auth','admin'])->group(function () {
-    
+Route::middleware('can:admin')->group(function () {
+    // ユーザー画面の追加
+    Route::resource('/admin/users', UserController::class);
     // 学習言語 リソースコントローラー
-    Route::get('admin/languages', [LanguagePostController::class,'index']) ->name('languages.index');
+    Route::get('admin/languages', [LanguagePostController::class,'index'])->name('languages.index');
     Route::get('admin/languages_show/{post}', [LanguagePostController::class, 'show'])->name('languages.show');
     Route::get('admin/languages_create', [LanguagePostController::class,'create']) ->name('languages.create');
     Route::post('admin', [LanguagePostController::class,'store']) ->name('languages.store');
