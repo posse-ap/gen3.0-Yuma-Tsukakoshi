@@ -24,6 +24,16 @@
 
             <div class="mt-8">
               <div class="w-full flex flex-col">
+                <label for="role" class="font-semibold mt-4">ロール</label>
+                <select name="role" id="role" class="w-auto py-2 border border-gray-300 rounded-md">
+                  <option value="user">user</option>
+                  <option value="admin">admin</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <div class="w-full flex flex-col">
                 <label for="email" class="font-semibold mt-4">メールアドレス</label>
                 <input type="text" name="email" class="w-auto p-8 border border-gray-300 rounded-md" id="email">
               </div>

@@ -41,6 +41,7 @@ class UserController extends Controller
         //
         $user = User::create([
             'name'=> $request->name,
+            'role'=> $request->role,
             'email'=> $request->email,
             'password'=> bcrypt($request->password),
         ]);
@@ -89,6 +90,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->update([
             'name' => $request->name,
+            'role' => $request->role,
             'email' => $request->email,
             'password' => $request->password,
         ]);
