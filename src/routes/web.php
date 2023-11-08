@@ -74,10 +74,10 @@ Route::middleware('auth')->group(function () {
 // 投稿処理
 Route::post('/webapp', [WebAppController::class,'store'])->name('webapp.store');
 
+// ユーザー画面の追加
+Route::resource('/admin/users', UserController::class)->middleware('can:admin');
 
 Route::middleware(['auth','admin'])->group(function () {
-    // ユーザー画面の追加
-    Route::resource('/admin/users', UserController::class);
     
     // 学習言語 リソースコントローラー
     Route::get('admin/languages', [LanguagePostController::class,'index']) ->name('languages.index');
@@ -96,6 +96,6 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::get('admin/contents_edit/{post}', [ContentPostController::class, 'edit'])->name('contents.edit');
     Route::patch('admin/contents_update/{post}', [ContentPostController::class, 'update'])->name('contents.update');
     Route::delete('admin/contents_delete/{post}', [ContentPostController::class, 'destroy'])->name('contents.destroy');
-})->middleware('can:test');
+});
 
 require __DIR__.'/auth.php';
