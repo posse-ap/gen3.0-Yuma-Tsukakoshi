@@ -36,16 +36,16 @@ class WebAppController extends Controller
         
         $study_data = [
             'user_id' => $user_id,
-            'date' => $request->study_day,
+            'date' => $request->date,
             'hours' => $request->study_hour,
         ];
         $study_hour = StudyHour::create($study_data);
         // 取得した最後のidをrecord_idに入れる
         $record_id = $study_hour->id;
 
-        $contents = $request->content;
-        $languages = $request->language;
-        // dd($contents,$languages);
+        $contents = $request->contents;
+        $languages = $request->languages;
+        dd($contents,$languages);
         
         foreach($contents as $content){
             $record_content = [

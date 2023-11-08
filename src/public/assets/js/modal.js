@@ -6,6 +6,7 @@
   const InputTexts = document.querySelectorAll(".input-text");
   const tweetArea = document.getElementById("tweet-area");
   const shareTweet = document.querySelector(".js-twitter");
+  const today = new Date();
 
   const unChecked = (checkbox) => {
     checkbox.forEach((checkbox) => {
@@ -41,17 +42,20 @@
     let languages = [];
     let study_hour = $('input[name="study_hour"]').val();
 
-    $('input[name="contents[]"]:checked').each(function () {
+    $('input[name="content[]"]:checked').each(function () {
       contents.push($(this).val());
     });
-    $('input[name="languages[]"]:checked').each(function () {
+    $('input[name="language[]"]:checked').each(function () {
       languages.push($(this).val());
+    });
+    $.ajaxSetup({
+      headers: { 'X-CSRF-TOKEN': $("[name='csrf-token']").attr("content") },
     });
 
     $.ajax({
       url: 'http://localhost/webapp_store',
       type: 'POST',
-      dataType: 'text',
+      dataType: 'json',
       data: {
         date: date,
         contents: contents,
@@ -66,16 +70,20 @@
       Textclear(InputTexts);
       tweet();
 
-      const today = new Date();
       $('#studyDay-modalButton').val(`${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`);
     
     })
-    .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+    .fail(function (data,XMLHttpRequest, textStatus, errorThrown) {
       $('#loading').css("display","none");
       $('#error-record').css("display","block");
-      console.log("XMLHttpRequest : " + XMLHttpRequest.status);
-      console.log("textStatus     : " + textStatus);
-      console.log("errorThrown    : " + errorThrown.message);
+      $('#studyDay-modalButton').val(`${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`);
+      console.log(date);
+      console.log(contents);
+      console.log(languages);
+      console.log(study_hour);
+      // console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+      // console.log("textStatus     : " + textStatus);
+      // console.log("errorThrown    : " + errorThrown.message);
     })
   });
 
