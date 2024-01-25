@@ -1,4 +1,4 @@
-import axios from "@/lib/axios";
+import axios from "axios";
 
 export const getNews = async (url) => {
     try{
