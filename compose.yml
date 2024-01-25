@@ -1,0 +1,25 @@
+services:
+  front:
+    build:
+      context: ./
+      dockerfile: ./docker/front/Dockerfile
+    tty: true
+    working_dir: /app
+    volumes:
+      - ./front:/app
+      # - ./api/docs/openapi:/app/openapi
+
+  app:
+    build: ./docker/php
+    volumes:
+      - ./api/web:/work/web
+
+  web:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./api/web:/work/web
+    depends_on:
+      - app
