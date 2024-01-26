@@ -18,6 +18,14 @@ export const useGetNews = () => {
 };
 
 export const useGetNewsById = (id) => {
-    const { data } = useSWR(`/api/news/${id}`, getNewsById );
-    return { data };
+    const [ News, setNews] = useState([]);
+    const fetchNews = useCallback(async () => {
+        const news = await getNewsById(id);
+        setNews(news);
+    }, []);
+
+    useEffect(() => {
+        fetchNews();
+    }, [fetchNews]);
+    return News;
 };
